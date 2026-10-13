@@ -459,9 +459,11 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
   show(lang);
   var target = hash && document.getElementById(hash);
   if (target && target.scrollIntoView) {
-    target.scrollIntoView();
-    // The browser scrolls for the original #fragment after load, and #delete has no element of its own.
-    window.addEventListener('load', function () { target.scrollIntoView(); });
+    // Instant: the page's smooth scrolling gets interrupted while it loads and stops near the top.
+    // Again after load, because the browser then scrolls for the original #fragment (#delete has no element).
+    var jump = function () { target.scrollIntoView({ behavior: 'instant', block: 'start' }); };
+    jump();
+    window.addEventListener('load', jump);
   }
 })();
 </script>
