@@ -458,7 +458,11 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
   if (hash === 'delete') hash = lang + '-delete';
   show(lang);
   var target = hash && document.getElementById(hash);
-  if (target && target.scrollIntoView) target.scrollIntoView();
+  if (target && target.scrollIntoView) {
+    target.scrollIntoView();
+    // The browser scrolls for the original #fragment after load, and #delete has no element of its own.
+    window.addEventListener('load', function () { target.scrollIntoView(); });
+  }
 })();
 </script>
 </body>
