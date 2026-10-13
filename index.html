@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Daily Briefing Hub Privacy Policy</title>
+<meta name="description" content="นโยบายความเป็นส่วนตัวของแอป Daily Briefing Hub / Privacy policy of the Daily Briefing Hub app">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Noto+Serif+Thai:wght@500;600&display=swap">
+<style>
+/* Layout: one reading column (about 66 characters) under a sky-tinted masthead; tables scroll inside their own frame. */
+:root {
+  --bg: #f5f8f9;
+  --surface: #ffffff;
+  --fg: #12232a;
+  --muted: #536a73;
+  --line: #d7e2e6;
+  --accent: #0e7490;
+  --accent-soft: #e0f2f7;
+  --sun: #d97706;
+  --sun-soft: #fdf1e1;
+  --sky-a: #cfeaf3;
+  --sky-b: #f6efe2;
+  --font-display: "Noto Serif Thai", "Noto Serif", Georgia, serif;
+  --font-body: "IBM Plex Sans Thai", "Noto Sans Thai", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c171b; --surface: #12222a; --fg: #e3eef1; --muted: #93abb3; --line: #24383f;
+    --accent: #4fc3dc; --accent-soft: #123341; --sun: #f5b14c; --sun-soft: #33270f;
+    --sky-a: #0f2d38; --sky-b: #1c1a14; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0c171b; --surface: #12222a; --fg: #e3eef1; --muted: #93abb3; --line: #24383f;
+  --accent: #4fc3dc; --accent-soft: #123341; --sun: #f5b14c; --sun-soft: #33270f;
+  --sky-a: #0f2d38; --sky-b: #1c1a14; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 16px/1.75 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+.masthead {
+  background: linear-gradient(170deg, var(--sky-a) 0%, var(--sky-b) 100%);
+  border-bottom: 1px solid var(--line);
+  padding-inline: 16px;
+  padding-block: 40px 28px;
+}
+.wrap { max-width: 44rem; margin-inline: auto; }
+.page { padding-inline: 16px; padding-block: 8px 64px; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand svg { flex: none; width: 44px; height: 44px; }
+.brand-name { font-weight: 600; letter-spacing: 0.01em; }
+.brand-pkg { font: 400 12.5px/1.4 var(--font-mono); color: var(--muted); }
+h1 {
+  font: 600 clamp(1.9rem, 4.5vw, 2.5rem)/1.25 var(--font-display);
+  margin: 22px 0 6px;
+  text-wrap: balance;
+}
+.dates { color: var(--muted); font-size: 0.93rem; margin: 0; }
+.langs { display: flex; gap: 6px; margin-top: 18px; }
+.langs button {
+  font: 500 14px/1 var(--font-body);
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--fg);
+  cursor: pointer;
+}
+.langs button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.langs button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+article { display: grid; gap: 4px; }
+.summary {
+  margin-top: 28px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  border: 1px solid var(--line);
+}
+.summary h2 { margin-top: 0; font-size: 1.15rem; }
+.summary ul { margin: 6px 0 0; padding-left: 1.2em; }
+.toc { margin: 22px 0 6px; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 0.93rem; }
+.toc a { color: var(--accent); text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+h2 {
+  font: 600 1.35rem/1.4 var(--font-display);
+  margin: 36px 0 4px;
+  text-wrap: balance;
+  scroll-margin-top: 16px;
+}
+h3 { font-size: 1.02rem; font-weight: 600; margin: 18px 0 2px; }
+p, li { max-width: 66ch; }
+p { margin: 6px 0; }
+ul { margin: 6px 0; padding-left: 1.25em; }
+li { margin: 3px 0; }
+a { color: var(--accent); }
+code, .perm { font: 500 0.86em/1.4 var(--font-mono); }
+.table-frame { overflow-x: auto; margin: 10px 0; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+table { width: 100%; border-collapse: collapse; font-size: 0.93rem; min-width: 32rem; }
+th, td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+th { font-weight: 600; color: var(--muted); font-size: 0.82rem; letter-spacing: 0.03em; background: var(--bg); }
+tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 500; }
+.onphone { display: inline-block; font-size: 0.78rem; font-weight: 600; padding: 1px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); white-space: nowrap; }
+.leaves { display: inline-block; font-size: 0.78rem; font-weight: 600; padding: 1px 8px; border-radius: 999px; background: var(--sun-soft); color: var(--sun); white-space: nowrap; }
+.note { color: var(--muted); font-size: 0.93rem; }
+footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.88rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="brand">
+      <svg viewBox="0 0 44 44" aria-hidden="true">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#0e7490"/>
+            <stop offset="1" stop-color="#155e75"/>
+          </linearGradient>
+        </defs>
+        <rect width="44" height="44" rx="12" fill="url(#sky)"/>
+        <circle cx="29" cy="17" r="7" fill="#f59e0b"/>
+        <path d="M9 31h26" stroke="#cffafe" stroke-width="3" stroke-linecap="round"/>
+        <path d="M9 24h12" stroke="#cffafe" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+      </svg>
+      <div>
+        <div class="brand-name">Daily Briefing Hub</div>
+        <div class="brand-pkg">com.dailybriefing.hub · Android</div>
+      </div>
+    </div>
+    <h1 id="title">นโยบายความเป็นส่วนตัว</h1>
+    <p class="dates" id="dates">มีผลตั้งแต่ 8 ตุลาคม 2569 · ปรับปรุงล่าสุด 13 ตุลาคม 2569</p>
+    <div class="langs" role="group" aria-label="ภาษา / Language">
+      <button type="button" id="lang-th" data-lang="th" aria-pressed="true">ไทย</button>
+      <button type="button" id="lang-en" data-lang="en" aria-pressed="false">English</button>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+<div class="wrap">
+
+<!-- ======================================================== ภาษาไทย -->
+<article id="th" lang="th">
+  <section class="summary" aria-labelledby="th-summary">
+    <h2 id="th-summary">สรุปสั้นๆ</h2>
+    <ul>
+      <li>ไม่มีโฆษณา ไม่มีระบบติดตามพฤติกรรม และเราไม่ขายข้อมูลของคุณ</li>
+      <li>นัดหมายในปฏิทินถูกอ่านในเครื่องเท่านั้น ไม่ถูกส่งขึ้นเซิร์ฟเวอร์</li>
+      <li>ใช้แค่ตำแหน่งคร่าวๆ เพื่อดูอากาศ และไม่เก็บตำแหน่งไว้บนเซิร์ฟเวอร์ของเรา</li>
+      <li>สิ่งที่ต้องทำและการตั้งค่าเก็บในบัญชีของคุณเพื่อใช้ได้ทุกเครื่อง และขอลบได้ทุกเมื่อ</li>
+    </ul>
+  </section>
+
+  <ul class="toc" aria-label="สารบัญ">
+    <li><a href="#th-who">ผู้ดูแลข้อมูล</a></li>
+    <li><a href="#th-collect">ข้อมูลที่เก็บ</a></li>
+    <li><a href="#th-phone">ข้อมูลที่อยู่ในเครื่อง</a></li>
+    <li><a href="#th-permissions">สิทธิ์ที่แอปขอ</a></li>
+    <li><a href="#th-use">การใช้ข้อมูล</a></li>
+    <li><a href="#th-partners">ผู้ให้บริการ</a></li>
+    <li><a href="#th-keep">ระยะเวลาเก็บ</a></li>
+    <li><a href="#th-delete">ลบบัญชี</a></li>
+    <li><a href="#th-rights">สิทธิของคุณ</a></li>
+    <li><a href="#th-contact">ติดต่อ</a></li>
+  </ul>
+
+  <h2 id="th-who">ผู้ดูแลข้อมูล</h2>
+  <p>Daily Briefing Hub เป็นแอป Android ที่สรุปอากาศ นัดหมายวันนี้ สิ่งที่ต้องทำ และคำคมประจำวันไว้ในหน้าเดียว พร้อมแจ้งเตือนสรุปตามเวลาที่คุณตั้ง
+    แอปนี้พัฒนาและดูแลโดย Mr. Thamangon Jittrakarn ซึ่งเป็นผู้ควบคุมข้อมูลส่วนบุคคลตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA)</p>
+
+  <h2 id="th-collect">ข้อมูลที่เก็บไว้ในบัญชีของคุณ</h2>
+  <p>ข้อมูลต่อไปนี้เก็บบนเซิร์ฟเวอร์ (Supabase) เพื่อให้คุณเข้าสู่ระบบและใช้ข้อมูลเดียวกันได้ทุกเครื่อง ระบบกำหนดสิทธิ์ให้แต่ละบัญชีเห็นเฉพาะข้อมูลของตัวเอง</p>
+  <div class="table-frame">
+    <table>
+      <thead><tr><th>ข้อมูล</th><th>รายละเอียด</th><th>เหตุผล</th></tr></thead>
+      <tbody>
+        <tr><td>บัญชี</td><td>อีเมล ถ้าเข้าสู่ระบบด้วย Google จะมีชื่อ ลิงก์รูปโปรไฟล์ และรหัสบัญชี Google ตามที่ Google ส่งมาด้วย</td><td>ยืนยันตัวตนและเข้าสู่ระบบ</td></tr>
+        <tr><td>สิ่งที่ต้องทำ</td><td>ข้อความ สถานะทำแล้วหรือยัง วันครบกำหนด และเวลาที่สร้างหรือแก้ไข</td><td>ซิงค์รายการระหว่างเครื่อง</td></tr>
+        <tr><td>การตั้งค่า</td><td>เวลาส่งสรุป เปิดหรือปิดแจ้งเตือน เขตเวลา ลำดับการ์ดและการ์ดที่ซ่อน และวันที่ส่งสรุปล่าสุด</td><td>ส่งสรุปตรงเวลาและจัดหน้าหลักตามที่คุณเลือก</td></tr>
+        <tr><td>รหัสอุปกรณ์สำหรับแจ้งเตือน</td><td>Firebase installation ID ของแอปในเครื่องนี้ (ไม่ใช่หมายเลขเครื่องหรือเบอร์โทร)</td><td>ส่งแจ้งเตือนสรุปประจำวันไปที่เครื่องของคุณ</td></tr>
+        <tr><td>บันทึกการส่งสรุป</td><td>เวลาที่ส่งแจ้งเตือนและผลการส่ง (สำเร็จหรือไม่) ไม่มีเนื้อหาของสรุป</td><td>ตรวจว่าแจ้งเตือนทำงานตรงเวลา</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">เมื่อแอปเชื่อมต่อเซิร์ฟเวอร์ ผู้ให้บริการจะเห็นข้อมูลทางเทคนิคตามปกติของอินเทอร์เน็ต เช่น IP address และเวลาที่เรียกใช้ ข้อมูลนี้ใช้เพื่อให้บริการทำงานและรักษาความปลอดภัยเท่านั้น</p>
+
+  <h2 id="th-phone">ข้อมูลที่อยู่ในเครื่องของคุณเท่านั้น</h2>
+  <ul>
+    <li><b>นัดหมายในปฏิทิน</b> แอปอ่านนัดของวันนี้และวันถัดไปจากปฏิทินในเครื่องเพื่อแสดงผลและสรุปในแจ้งเตือน ไม่มีการส่งนัดหมายขึ้นเซิร์ฟเวอร์</li>
+    <li><b>PIN</b> เก็บเป็นค่าแฮช (PBKDF2) ในเครื่อง ไม่มีใครเห็นตัวเลขจริง และถูกลบเมื่อออกจากระบบ</li>
+    <li><b>ตำแหน่ง</b> แอปจำพิกัดคร่าวๆ ล่าสุดไว้ในเครื่องเพื่อใช้ดูอากาศ</li>
+    <li><b>แคชอากาศ ธีม และภาษา</b> เก็บในเครื่องเพื่อให้แอปเปิดเร็วและใช้ได้ตอนออฟไลน์</li>
+    <li><b>ประวัติการแสดงสรุป</b> เวลาที่แสดงสรุป 14 ครั้งล่าสุด ใช้ตรวจว่าแจ้งเตือนมาตรงเวลา</li>
+  </ul>
+
+  <h2 id="th-permissions">สิทธิ์ที่แอปขอ</h2>
+  <p>ทุกสิทธิ์เป็นทางเลือก แอปยังใช้งานได้หากคุณไม่อนุญาต และคุณปิดได้ทุกเมื่อในการตั้งค่าของเครื่อง</p>
+  <div class="table-frame">
+    <table>
+      <thead><tr><th>สิทธิ์</th><th>ใช้ทำอะไร</th><th>ข้อมูลออกจากเครื่องไหม</th></tr></thead>
+      <tbody>
+        <tr><td>ปฏิทิน<br><span class="perm">READ_CALENDAR</span></td><td>แสดงนัดหมายวันนี้บนหน้าหลักและในแจ้งเตือน</td><td><span class="onphone">ไม่ออก</span> อ่านในเครื่องเท่านั้น</td></tr>
+        <tr><td>การแจ้งเตือน<br><span class="perm">POST_NOTIFICATIONS</span></td><td>แสดงสรุปประจำวันตามเวลาที่ตั้ง</td><td><span class="onphone">ไม่ออก</span> ข้อความสรุปสร้างในเครื่อง</td></tr>
+        <tr><td>ตำแหน่งโดยประมาณ<br><span class="perm">ACCESS_COARSE_LOCATION</span></td><td>ดูอากาศและชื่อพื้นที่ที่คุณอยู่ ถ้าไม่อนุญาตจะแสดงอากาศกรุงเทพฯ</td><td><span class="leaves">ออกบางส่วน</span> เฉพาะพิกัดคร่าวๆ ไปยังผู้ให้บริการอากาศและบริการชื่อสถานที่ของ Google</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="th-use">เราใช้ข้อมูลอย่างไร</h2>
+  <ul>
+    <li>ให้คุณเข้าสู่ระบบ และซิงค์สิ่งที่ต้องทำและการตั้งค่าระหว่างเครื่อง</li>
+    <li>ส่งแจ้งเตือนสรุปประจำวันตามเวลาและเขตเวลาของคุณ ข้อความที่ส่งผ่าน Firebase เป็นแค่สัญญาณปลุกแอป ไม่มีเนื้อหาส่วนตัว แอปสร้างข้อความสรุปเองในเครื่อง</li>
+    <li>แสดงอากาศของพื้นที่ที่คุณอยู่</li>
+  </ul>
+  <p>เราไม่ใช้ข้อมูลของคุณเพื่อโฆษณา ไม่ทำโปรไฟล์ ไม่ติดตามพฤติกรรมการใช้งาน และไม่ขายหรือให้เช่าข้อมูลแก่ผู้ใด</p>
+
+  <h2 id="th-partners">ผู้ให้บริการที่เกี่ยวข้อง</h2>
+  <p>เราใช้ผู้ให้บริการต่อไปนี้ แต่ละรายได้รับเฉพาะข้อมูลที่จำเป็นต่อหน้าที่ของตัวเอง</p>
+  <div class="table-frame">
+    <table>
+      <thead><tr><th>ผู้ให้บริการ</th><th>หน้าที่</th><th>ข้อมูลที่ได้รับ</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://supabase.com/privacy">Supabase</a></td><td>ฐานข้อมูลและระบบบัญชี (เซิร์ฟเวอร์ที่สิงคโปร์)</td><td>ข้อมูลบัญชี สิ่งที่ต้องทำ การตั้งค่า รหัสอุปกรณ์สำหรับแจ้งเตือน</td></tr>
+        <tr><td><a href="https://resend.com/legal/privacy-policy">Resend</a></td><td>ส่งอีเมลรหัสเข้าสู่ระบบ</td><td>อีเมลของคุณและรหัส 6 หลัก</td></tr>
+        <tr><td><a href="https://firebase.google.com/support/privacy">Google Firebase Cloud Messaging</a></td><td>ส่งสัญญาณแจ้งเตือนถึงเครื่อง</td><td>Firebase installation ID</td></tr>
+        <tr><td><a href="https://policies.google.com/privacy">Google</a></td><td>เข้าสู่ระบบด้วย Google (ถ้าเลือก) และบริการชื่อสถานที่ของ Android</td><td>คำขอเข้าสู่ระบบ และพิกัดคร่าวๆ เพื่อหาชื่อพื้นที่</td></tr>
+        <tr><td><a href="https://openweather.co.uk/privacy-policy">OpenWeather</a></td><td>ข้อมูลอากาศและพยากรณ์</td><td>พิกัดคร่าวๆ และภาษาที่ใช้</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>ผู้ให้บริการบางรายประมวลผลข้อมูลนอกประเทศไทย เช่น สิงคโปร์ ญี่ปุ่น สหรัฐอเมริกา และสหราชอาณาจักร ผู้ให้บริการเหล่านี้มีมาตรการคุ้มครองข้อมูลตามนโยบายของตนที่ลิงก์ไว้ด้านบน</p>
+
+  <h2 id="th-keep">ระยะเวลาเก็บข้อมูล</h2>
+  <ul>
+    <li>ข้อมูลในบัญชีเก็บไว้ตราบที่บัญชียังอยู่ สิ่งที่ต้องทำที่คุณลบจะถูกลบจากเซิร์ฟเวอร์ในการซิงค์ครั้งถัดไป</li>
+    <li>บันทึกการส่งสรุปเก็บ 90 วัน แล้วลบอัตโนมัติ</li>
+    <li>เมื่อออกจากระบบ แอปจะลบรหัสอุปกรณ์สำหรับแจ้งเตือนของเครื่องนั้นออกจากเซิร์ฟเวอร์ และลบสิ่งที่ต้องทำ การตั้งค่า แคชอากาศ และ PIN ออกจากเครื่อง ข้อมูลในบัญชียังอยู่เพื่อให้กลับมาเข้าสู่ระบบได้</li>
+    <li>เมื่อลบบัญชี ข้อมูลทั้งหมดในตารางด้านบนจะถูกลบจากเซิร์ฟเวอร์ทันที</li>
+  </ul>
+
+  <h2 id="th-delete">การลบบัญชีและข้อมูล</h2>
+  <p><b>ในแอป:</b> ตั้งค่า → บัญชี → <b>ลบบัญชี</b> แล้วยืนยัน บัญชีและข้อมูลทั้งหมดที่เก็บบนเซิร์ฟเวอร์จะถูกลบทันที
+    (สิ่งที่ต้องทำ การตั้งค่า การ์ดหน้าหลัก รหัสอุปกรณ์สำหรับแจ้งเตือน และบันทึกการส่งสรุป) แล้วเครื่องจะออกจากระบบและล้างข้อมูลในเครื่อง
+    นัดหมายในปฏิทินของเครื่องไม่ได้รับผลกระทบ</p>
+  <p><b>ถ้าไม่มีแอปแล้ว:</b> ส่งอีเมลจากอีเมลที่ใช้สมัครมาที่ <a href="mailto:a.tumtam@gmail.com">a.tumtam@gmail.com</a> โดยระบุว่า "ขอลบบัญชี Daily Briefing Hub"
+    เราจะลบบัญชีและข้อมูลทั้งหมดภายใน 30 วัน และตอบกลับเมื่อลบเสร็จ</p>
+
+  <h2 id="th-rights">สิทธิของคุณตาม PDPA</h2>
+  <ul>
+    <li>ขอเข้าถึงและขอสำเนาข้อมูลของคุณ</li>
+    <li>ขอแก้ไขข้อมูลให้ถูกต้อง</li>
+    <li>ขอลบ หรือขอให้ระงับการใช้ข้อมูล</li>
+    <li>ขอรับข้อมูลในรูปแบบที่อ่านได้ด้วยเครื่อง (โอนย้ายข้อมูล)</li>
+    <li>คัดค้านการประมวลผล และถอนความยินยอม เช่น ปิดสิทธิ์ปฏิทินหรือตำแหน่งในการตั้งค่าของเครื่อง</li>
+    <li>ร้องเรียนต่อ<a href="https://www.pdpc.or.th">สำนักงานคณะกรรมการคุ้มครองข้อมูลส่วนบุคคล</a></li>
+  </ul>
+  <p>ใช้สิทธิ์ได้โดยส่งอีเมลมาที่ <a href="mailto:a.tumtam@gmail.com">a.tumtam@gmail.com</a> เราจะตอบภายใน 30 วัน</p>
+
+  <h2 id="th-security">ความปลอดภัย</h2>
+  <p>การรับส่งข้อมูลทั้งหมดเข้ารหัสด้วย HTTPS เซิร์ฟเวอร์ใช้ Row Level Security เพื่อให้แต่ละบัญชีเข้าถึงได้เฉพาะข้อมูลของตัวเอง
+    กุญแจลับของระบบไม่ได้ฝังอยู่ในแอป และแอปล็อกด้วย PIN เมื่อกลับมาจากเบื้องหลัง</p>
+
+  <h2 id="th-children">เด็ก</h2>
+  <p>แอปนี้ไม่ได้ออกแบบสำหรับเด็กอายุต่ำกว่า 13 ปี หากผู้ปกครองพบว่าบุตรหลานสร้างบัญชี โปรดติดต่อเราเพื่อลบข้อมูล</p>
+
+  <h2 id="th-changes">การเปลี่ยนแปลงนโยบาย</h2>
+  <p>หากนโยบายเปลี่ยน เราจะแก้วันที่ปรับปรุงล่าสุดด้านบน และแจ้งในแอปถ้าเป็นการเปลี่ยนแปลงที่สำคัญ</p>
+
+  <h2 id="th-contact">ติดต่อ</h2>
+  <p>Mr. Thamangon Jittrakarn<br>ประเทศไทย<br>อีเมล: <a href="mailto:a.tumtam@gmail.com">a.tumtam@gmail.com</a></p>
+</article>
+
+<!-- ======================================================== English -->
+<article id="en" lang="en">
+  <section class="summary" aria-labelledby="en-summary">
+    <h2 id="en-summary">In short</h2>
+    <ul>
+      <li>No ads, no tracking, and we never sell your data.</li>
+      <li>Calendar events are read on your phone only and never uploaded.</li>
+      <li>Only your rough location is used, to show the weather, and it is not stored on our server.</li>
+      <li>Your to-dos and settings are kept in your account so they follow you to every phone, and you can have them deleted at any time.</li>
+    </ul>
+  </section>
+
+  <ul class="toc" aria-label="Contents">
+    <li><a href="#en-who">Who we are</a></li>
+    <li><a href="#en-collect">What we keep</a></li>
+    <li><a href="#en-phone">What stays on your phone</a></li>
+    <li><a href="#en-permissions">Permissions</a></li>
+    <li><a href="#en-use">How we use it</a></li>
+    <li><a href="#en-partners">Service providers</a></li>
+    <li><a href="#en-keep">Retention</a></li>
+    <li><a href="#en-delete">Delete your account</a></li>
+    <li><a href="#en-rights">Your rights</a></li>
+    <li><a href="#en-contact">Contact</a></li>
+  </ul>
+
+  <h2 id="en-who">Who we are</h2>
+  <p>Daily Briefing Hub is an Android app that puts today's weather, your events, your to-dos and a daily quote on one screen, and sends a briefing at the time you choose.
+    It is developed and run by Mr. Thamangon Jittrakarn, the data controller under Thailand's Personal Data Protection Act B.E. 2562 (2019).</p>
+
+  <h2 id="en-collect">What we keep in your account</h2>
+  <p>The following is stored on our server (Supabase) so you can sign in and see the same data on every phone. Access rules let each account see only its own data.</p>
+  <div class="table-frame">
+    <table>
+      <thead><tr><th>Data</th><th>Details</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Account</td><td>Your email. If you sign in with Google, also the name, profile picture link and Google account ID that Google provides.</td><td>To identify you and sign you in</td></tr>
+        <tr><td>To-dos</td><td>Text, whether it is done, due date, and when it was created or changed</td><td>To sync your list between phones</td></tr>
+        <tr><td>Settings</td><td>Briefing time, notifications on or off, time zone, card order and hidden cards, and the date of the last briefing</td><td>To send the briefing on time and lay out Home your way</td></tr>
+        <tr><td>Notification ID</td><td>The Firebase installation ID of the app on this phone (not a hardware ID or phone number)</td><td>To deliver the daily briefing to your phone</td></tr>
+        <tr><td>Briefing log</td><td>When each briefing was sent and whether sending worked. It holds none of the briefing's content.</td><td>To check that briefings arrive on time</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">When the app connects, service providers see the usual technical details of any internet connection, such as your IP address and the time of the request. These are used only to run and secure the service.</p>
+
+  <h2 id="en-phone">What stays on your phone</h2>
+  <ul>
+    <li><b>Calendar events.</b> The app reads today's and the next day's events from the phone's calendar to show them and to summarise them in the briefing. They are never sent to our server.</li>
+    <li><b>PIN.</b> Stored on the phone as a PBKDF2 hash, so nobody can read the digits. It is removed when you sign out.</li>
+    <li><b>Location.</b> The app remembers your last rough position on the phone to show the weather.</li>
+    <li><b>Weather cache, theme and language.</b> Kept on the phone so the app opens quickly and works offline.</li>
+    <li><b>Briefing history.</b> The times of the last 14 briefings shown, to check that they arrive on time.</li>
+  </ul>
+
+  <h2 id="en-permissions">Permissions</h2>
+  <p>Every permission is optional. The app still works without them, and you can turn them off at any time in the phone's settings.</p>
+  <div class="table-frame">
+    <table>
+      <thead><tr><th>Permission</th><th>Used for</th><th>Does data leave the phone?</th></tr></thead>
+      <tbody>
+        <tr><td>Calendar<br><span class="perm">READ_CALENDAR</span></td><td>Today's events on Home and in the briefing</td><td><span class="onphone">No</span> read on the phone only</td></tr>
+        <tr><td>Notifications<br><span class="perm">POST_NOTIFICATIONS</span></td><td>Showing the daily briefing at your time</td><td><span class="onphone">No</span> the text is built on the phone</td></tr>
+        <tr><td>Approximate location<br><span class="perm">ACCESS_COARSE_LOCATION</span></td><td>The weather and place name where you are. Without it the app shows Bangkok.</td><td><span class="leaves">Partly</span> rough coordinates only, to the weather provider and Google's place-name service</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="en-use">How we use your data</h2>
+  <ul>
+    <li>To sign you in and keep your to-dos and settings in step across phones.</li>
+    <li>To send the daily briefing at your time in your time zone. The message sent through Firebase only wakes the app and carries no personal content; the app writes the briefing on the phone.</li>
+    <li>To show the weather where you are.</li>
+  </ul>
+  <p>We do not use your data for advertising, build profiles, track how you use the app, or sell or rent data to anyone.</p>
+
+  <h2 id="en-partners">Service providers</h2>
+  <p>We rely on these providers. Each receives only what it needs for its job.</p>
+  <div class="table-frame">
+    <table>
+      <thead><tr><th>Provider</th><th>Role</th><th>What it receives</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://supabase.com/privacy">Supabase</a></td><td>Database and accounts (servers in Singapore)</td><td>Account data, to-dos, settings, notification ID</td></tr>
+        <tr><td><a href="https://resend.com/legal/privacy-policy">Resend</a></td><td>Sends sign-in code emails</td><td>Your email address and the 6-digit code</td></tr>
+        <tr><td><a href="https://firebase.google.com/support/privacy">Google Firebase Cloud Messaging</a></td><td>Delivers the briefing signal to your phone</td><td>Firebase installation ID</td></tr>
+        <tr><td><a href="https://policies.google.com/privacy">Google</a></td><td>Sign in with Google (if you choose it) and Android's place-name service</td><td>The sign-in request, and rough coordinates to find the place name</td></tr>
+        <tr><td><a href="https://openweather.co.uk/privacy-policy">OpenWeather</a></td><td>Current weather and forecast</td><td>Rough coordinates and your language</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Some providers process data outside Thailand, for example in Singapore, Japan, the United States and the United Kingdom, under the safeguards described in their policies linked above.</p>
+
+  <h2 id="en-keep">How long we keep data</h2>
+  <ul>
+    <li>Account data is kept while your account exists. A to-do you delete is removed from the server at the next sync.</li>
+    <li>The briefing log is kept for 90 days, then deleted automatically.</li>
+    <li>Signing out removes that phone's notification ID from the server and clears to-dos, settings, weather cache and PIN from the phone. Your account data stays so you can sign in again.</li>
+    <li>Deleting your account removes everything listed above from the server at once.</li>
+  </ul>
+
+  <h2 id="en-delete">Delete your account and data</h2>
+  <p><b>In the app:</b> Settings → Account → <b>Delete account</b>, then confirm. Your account and everything stored with it on the server
+    are deleted at once (to-dos, settings, Home cards, notification ID and briefing log), and the phone is signed out and cleared.
+    Events in the phone's calendar are not touched.</p>
+  <p><b>Without the app:</b> email <a href="mailto:a.tumtam@gmail.com">a.tumtam@gmail.com</a> from the address you signed up with, saying "Delete my Daily Briefing Hub account".
+    We delete your account and all its data within 30 days and reply once it is done.</p>
+
+  <h2 id="en-rights">Your rights</h2>
+  <ul>
+    <li>Access your data and get a copy of it</li>
+    <li>Have it corrected</li>
+    <li>Have it deleted, or its use restricted</li>
+    <li>Receive it in a machine-readable format</li>
+    <li>Object to processing and withdraw consent, for example by turning off the calendar or location permission</li>
+    <li>Complain to Thailand's <a href="https://www.pdpc.or.th">Personal Data Protection Committee</a></li>
+  </ul>
+  <p>To use any of these rights, email <a href="mailto:a.tumtam@gmail.com">a.tumtam@gmail.com</a>. We reply within 30 days.</p>
+
+  <h2 id="en-security">Security</h2>
+  <p>All traffic is encrypted with HTTPS. The server uses Row Level Security so each account can reach only its own data.
+    No secret server keys are built into the app, and the app locks with your PIN when it comes back from the background.</p>
+
+  <h2 id="en-children">Children</h2>
+  <p>The app is not designed for children under 13. If you are a parent and find that your child created an account, contact us and we will delete it.</p>
+
+  <h2 id="en-changes">Changes to this policy</h2>
+  <p>If this policy changes, we update the "last updated" date above and tell you in the app when the change is significant.</p>
+
+  <h2 id="en-contact">Contact</h2>
+  <p>Mr. Thamangon Jittrakarn<br>Thailand<br>Email: <a href="mailto:a.tumtam@gmail.com">a.tumtam@gmail.com</a></p>
+</article>
+
+<footer>
+  <span lang="th">Daily Briefing Hub · นโยบายความเป็นส่วนตัว</span> · <span lang="en">Privacy policy</span>
+</footer>
+
+</div>
+</main>
+
+<script>
+(function () {
+  var th = document.getElementById('th');
+  var en = document.getElementById('en');
+  var title = document.getElementById('title');
+  var dates = document.getElementById('dates');
+  var buttons = document.querySelectorAll('[data-lang]');
+  var text = {
+    th: { title: 'นโยบายความเป็นส่วนตัว', dates: 'มีผลตั้งแต่ 8 ตุลาคม 2569 · ปรับปรุงล่าสุด 13 ตุลาคม 2569' },
+    en: { title: 'Privacy policy', dates: 'Effective 8 October 2026 · Last updated 13 October 2026' }
+  };
+  function show(lang) {
+    th.hidden = lang !== 'th';
+    en.hidden = lang !== 'en';
+    title.textContent = text[lang].title;
+    dates.textContent = text[lang].dates;
+    document.documentElement.lang = lang;
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].setAttribute('aria-pressed', String(buttons[i].getAttribute('data-lang') === lang));
+    }
+  }
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function () {
+      var lang = this.getAttribute('data-lang');
+      show(lang);
+      try { history.replaceState(null, '', '#' + lang); } catch (e) {}
+    });
+  }
+  // A link like #en or #en-delete opens that language (and section); otherwise follow the browser.
+  // #delete (the account deletion link given to Google Play) opens that section in the browser's language.
+  var hash = location.hash.slice(1);
+  var browser = (navigator.language || 'th').toLowerCase().indexOf('th') === 0 ? 'th' : 'en';
+  var lang = hash.indexOf('en') === 0 ? 'en' : hash.indexOf('th') === 0 ? 'th' : browser;
+  if (hash === 'delete') hash = lang + '-delete';
+  show(lang);
+  var target = hash && document.getElementById(hash);
+  if (target && target.scrollIntoView) target.scrollIntoView();
+})();
+</script>
+</body>
+</html>
