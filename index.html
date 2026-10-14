@@ -142,7 +142,7 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
       </div>
     </div>
     <h1 id="title">นโยบายความเป็นส่วนตัว</h1>
-    <p class="dates" id="dates">มีผลตั้งแต่ 8 ตุลาคม 2569 · ปรับปรุงล่าสุด 13 ตุลาคม 2569</p>
+    <p class="dates" id="dates">มีผลตั้งแต่ 8 ตุลาคม 2569 · ปรับปรุงล่าสุด 14 ตุลาคม 2569</p>
     <div class="langs" role="group" aria-label="ภาษา / Language">
       <button type="button" id="lang-th" data-lang="th" aria-pressed="true">ไทย</button>
       <button type="button" id="lang-en" data-lang="en" aria-pressed="false">English</button>
@@ -160,7 +160,7 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
     <ul>
       <li>ไม่มีโฆษณา ไม่มีระบบติดตามพฤติกรรม และเราไม่ขายข้อมูลของคุณ</li>
       <li>นัดหมายในปฏิทินถูกอ่านในเครื่องเท่านั้น ไม่ถูกส่งขึ้นเซิร์ฟเวอร์</li>
-      <li>ใช้แค่ตำแหน่งคร่าวๆ เพื่อดูอากาศ และไม่เก็บตำแหน่งไว้บนเซิร์ฟเวอร์ของเรา</li>
+      <li>ใช้แค่ตำแหน่งคร่าวๆ เพื่อดูอากาศและค่าฝุ่น และไม่เก็บตำแหน่งไว้บนเซิร์ฟเวอร์ของเรา</li>
       <li>สิ่งที่ต้องทำและการตั้งค่าเก็บในบัญชีของคุณเพื่อใช้ได้ทุกเครื่อง และขอลบได้ทุกเมื่อ</li>
     </ul>
   </section>
@@ -179,7 +179,8 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
   </ul>
 
   <h2 id="th-who">ผู้ดูแลข้อมูล</h2>
-  <p>Daily Briefing Hub เป็นแอป Android ที่สรุปอากาศ นัดหมายวันนี้ สิ่งที่ต้องทำ และคำคมประจำวันไว้ในหน้าเดียว พร้อมแจ้งเตือนสรุปตามเวลาที่คุณตั้ง
+  <p>Daily Briefing Hub เป็นแอป Android ที่สรุปอากาศ ค่าฝุ่น PM2.5 นัดหมายวันนี้ สิ่งที่ต้องทำ วันหยุดและวันพระ และคำคมประจำวันไว้ในหน้าเดียว
+    พร้อม widget บนหน้าจอหลัก และแจ้งเตือนสรุปตามเวลาที่คุณตั้ง
     แอปนี้พัฒนาและดูแลโดย Mr. Thamangon Jittrakarn ซึ่งเป็นผู้ควบคุมข้อมูลส่วนบุคคลตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA)</p>
 
   <h2 id="th-collect">ข้อมูลที่เก็บไว้ในบัญชีของคุณ</h2>
@@ -200,10 +201,13 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
 
   <h2 id="th-phone">ข้อมูลที่อยู่ในเครื่องของคุณเท่านั้น</h2>
   <ul>
-    <li><b>นัดหมายในปฏิทิน</b> แอปอ่านนัดของวันนี้และวันถัดไปจากปฏิทินในเครื่องเพื่อแสดงผลและสรุปในแจ้งเตือน ไม่มีการส่งนัดหมายขึ้นเซิร์ฟเวอร์</li>
+    <li><b>นัดหมายในปฏิทิน</b> แอปอ่านนัดของวันนี้และวันถัดไปจากปฏิทินในเครื่องเพื่อแสดงผล สรุปใน widget และในแจ้งเตือน ไม่มีการส่งนัดหมายขึ้นเซิร์ฟเวอร์</li>
+    <li><b>Widget บนหน้าจอหลัก</b> แสดงข้อมูลจากในเครื่องเท่านั้น และอยู่นอกการล็อก PIN จึงแสดงแค่จำนวนนัดและจำนวนงานเป็นค่าเริ่มต้น
+      ชื่อนัดและชื่องานจะแสดงก็ต่อเมื่อคุณเปิดเองในการตั้งค่า ค่านี้เก็บในเครื่องและกลับเป็นปิดเมื่อออกจากระบบ</li>
     <li><b>PIN</b> เก็บเป็นค่าแฮช (PBKDF2) ในเครื่อง ไม่มีใครเห็นตัวเลขจริง และถูกลบเมื่อออกจากระบบ</li>
     <li><b>ตำแหน่ง</b> แอปจำพิกัดคร่าวๆ ล่าสุดไว้ในเครื่องเพื่อใช้ดูอากาศ</li>
     <li><b>แคชอากาศ ธีม และภาษา</b> เก็บในเครื่องเพื่อให้แอปเปิดเร็วและใช้ได้ตอนออฟไลน์</li>
+    <li><b>รายการวันหยุดและวันพระ</b> แอปดาวน์โหลดจากเซิร์ฟเวอร์ของเราวันละครั้งและเก็บไว้ในเครื่อง เป็นข้อมูลสาธารณะที่เหมือนกันทุกคน ไม่เกี่ยวกับตัวคุณ</li>
     <li><b>ประวัติการแสดงสรุป</b> เวลาที่แสดงสรุป 14 ครั้งล่าสุด ใช้ตรวจว่าแจ้งเตือนมาตรงเวลา</li>
   </ul>
 
@@ -213,9 +217,9 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
     <table>
       <thead><tr><th>สิทธิ์</th><th>ใช้ทำอะไร</th><th>ข้อมูลออกจากเครื่องไหม</th></tr></thead>
       <tbody>
-        <tr><td>ปฏิทิน<br><span class="perm">READ_CALENDAR</span></td><td>แสดงนัดหมายวันนี้บนหน้าหลักและในแจ้งเตือน</td><td><span class="onphone">ไม่ออก</span> อ่านในเครื่องเท่านั้น</td></tr>
+        <tr><td>ปฏิทิน<br><span class="perm">READ_CALENDAR</span></td><td>แสดงนัดหมายวันนี้บนหน้าหลัก ใน widget และในแจ้งเตือน</td><td><span class="onphone">ไม่ออก</span> อ่านในเครื่องเท่านั้น</td></tr>
         <tr><td>การแจ้งเตือน<br><span class="perm">POST_NOTIFICATIONS</span></td><td>แสดงสรุปประจำวันตามเวลาที่ตั้ง</td><td><span class="onphone">ไม่ออก</span> ข้อความสรุปสร้างในเครื่อง</td></tr>
-        <tr><td>ตำแหน่งโดยประมาณ<br><span class="perm">ACCESS_COARSE_LOCATION</span></td><td>ดูอากาศและชื่อพื้นที่ที่คุณอยู่ ถ้าไม่อนุญาตจะแสดงอากาศกรุงเทพฯ</td><td><span class="leaves">ออกบางส่วน</span> เฉพาะพิกัดคร่าวๆ ไปยังผู้ให้บริการอากาศและบริการชื่อสถานที่ของ Google</td></tr>
+        <tr><td>ตำแหน่งโดยประมาณ<br><span class="perm">ACCESS_COARSE_LOCATION</span></td><td>ดูอากาศ ค่าฝุ่น และชื่อพื้นที่ที่คุณอยู่ ถ้าไม่อนุญาตจะแสดงของกรุงเทพฯ</td><td><span class="leaves">ออกบางส่วน</span> เฉพาะพิกัดคร่าวๆ ไปยังผู้ให้บริการอากาศและบริการชื่อสถานที่ของ Google</td></tr>
       </tbody>
     </table>
   </div>
@@ -224,7 +228,7 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
   <ul>
     <li>ให้คุณเข้าสู่ระบบ และซิงค์สิ่งที่ต้องทำและการตั้งค่าระหว่างเครื่อง</li>
     <li>ส่งแจ้งเตือนสรุปประจำวันตามเวลาและเขตเวลาของคุณ ข้อความที่ส่งผ่าน Firebase เป็นแค่สัญญาณปลุกแอป ไม่มีเนื้อหาส่วนตัว แอปสร้างข้อความสรุปเองในเครื่อง</li>
-    <li>แสดงอากาศของพื้นที่ที่คุณอยู่</li>
+    <li>แสดงอากาศและค่าฝุ่น PM2.5 ของพื้นที่ที่คุณอยู่</li>
   </ul>
   <p>เราไม่ใช้ข้อมูลของคุณเพื่อโฆษณา ไม่ทำโปรไฟล์ ไม่ติดตามพฤติกรรมการใช้งาน และไม่ขายหรือให้เช่าข้อมูลแก่ผู้ใด</p>
 
@@ -238,7 +242,7 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
         <tr><td><a href="https://resend.com/legal/privacy-policy">Resend</a></td><td>ส่งอีเมลรหัสเข้าสู่ระบบ</td><td>อีเมลของคุณและรหัส 6 หลัก</td></tr>
         <tr><td><a href="https://firebase.google.com/support/privacy">Google Firebase Cloud Messaging</a></td><td>ส่งสัญญาณแจ้งเตือนถึงเครื่อง</td><td>Firebase installation ID</td></tr>
         <tr><td><a href="https://policies.google.com/privacy">Google</a></td><td>เข้าสู่ระบบด้วย Google (ถ้าเลือก) และบริการชื่อสถานที่ของ Android</td><td>คำขอเข้าสู่ระบบ และพิกัดคร่าวๆ เพื่อหาชื่อพื้นที่</td></tr>
-        <tr><td><a href="https://openweather.co.uk/privacy-policy">OpenWeather</a></td><td>ข้อมูลอากาศและพยากรณ์</td><td>พิกัดคร่าวๆ และภาษาที่ใช้</td></tr>
+        <tr><td><a href="https://openweather.co.uk/privacy-policy">OpenWeather</a></td><td>ข้อมูลอากาศ พยากรณ์ และค่าฝุ่น PM2.5</td><td>พิกัดคร่าวๆ และภาษาที่ใช้</td></tr>
       </tbody>
     </table>
   </div>
@@ -248,7 +252,7 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
   <ul>
     <li>ข้อมูลในบัญชีเก็บไว้ตราบที่บัญชียังอยู่ สิ่งที่ต้องทำที่คุณลบจะถูกลบจากเซิร์ฟเวอร์ในการซิงค์ครั้งถัดไป</li>
     <li>บันทึกการส่งสรุปเก็บ 90 วัน แล้วลบอัตโนมัติ</li>
-    <li>เมื่อออกจากระบบ แอปจะลบรหัสอุปกรณ์สำหรับแจ้งเตือนของเครื่องนั้นออกจากเซิร์ฟเวอร์ และลบสิ่งที่ต้องทำ การตั้งค่า แคชอากาศ และ PIN ออกจากเครื่อง ข้อมูลในบัญชียังอยู่เพื่อให้กลับมาเข้าสู่ระบบได้</li>
+    <li>เมื่อออกจากระบบ แอปจะลบรหัสอุปกรณ์สำหรับแจ้งเตือนของเครื่องนั้นออกจากเซิร์ฟเวอร์ และลบสิ่งที่ต้องทำ การตั้งค่า แคชอากาศ และ PIN ออกจากเครื่อง ส่วน widget กลับไปแสดงแค่จำนวน ข้อมูลในบัญชียังอยู่เพื่อให้กลับมาเข้าสู่ระบบได้</li>
     <li>เมื่อลบบัญชี ข้อมูลทั้งหมดในตารางด้านบนจะถูกลบจากเซิร์ฟเวอร์ทันที</li>
   </ul>
 
@@ -291,7 +295,7 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
     <ul>
       <li>No ads, no tracking, and we never sell your data.</li>
       <li>Calendar events are read on your phone only and never uploaded.</li>
-      <li>Only your rough location is used, to show the weather, and it is not stored on our server.</li>
+      <li>Only your rough location is used, to show the weather and PM2.5, and it is not stored on our server.</li>
       <li>Your to-dos and settings are kept in your account so they follow you to every phone, and you can have them deleted at any time.</li>
     </ul>
   </section>
@@ -310,7 +314,8 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
   </ul>
 
   <h2 id="en-who">Who we are</h2>
-  <p>Daily Briefing Hub is an Android app that puts today's weather, your events, your to-dos and a daily quote on one screen, and sends a briefing at the time you choose.
+  <p>Daily Briefing Hub is an Android app that puts today's weather and PM2.5, your events, your to-dos, holidays and Buddhist holy days and a daily quote on one screen,
+    with home-screen widgets, and sends a briefing at the time you choose.
     It is developed and run by Mr. Thamangon Jittrakarn, the data controller under Thailand's Personal Data Protection Act B.E. 2562 (2019).</p>
 
   <h2 id="en-collect">What we keep in your account</h2>
@@ -331,10 +336,13 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
 
   <h2 id="en-phone">What stays on your phone</h2>
   <ul>
-    <li><b>Calendar events.</b> The app reads today's and the next day's events from the phone's calendar to show them and to summarise them in the briefing. They are never sent to our server.</li>
+    <li><b>Calendar events.</b> The app reads today's and the next day's events from the phone's calendar to show them and to summarise them in the widget and the briefing. They are never sent to our server.</li>
+    <li><b>Home-screen widgets.</b> They show data from the phone only. Because a widget sits outside the PIN lock, it shows just the number of events and to-dos
+      unless you choose to show their names in Settings. That choice stays on the phone and is turned off again when you sign out.</li>
     <li><b>PIN.</b> Stored on the phone as a PBKDF2 hash, so nobody can read the digits. It is removed when you sign out.</li>
     <li><b>Location.</b> The app remembers your last rough position on the phone to show the weather.</li>
     <li><b>Weather cache, theme and language.</b> Kept on the phone so the app opens quickly and works offline.</li>
+    <li><b>Holidays and holy days.</b> Downloaded from our server once a day and kept on the phone. The list is public and the same for everyone; it says nothing about you.</li>
     <li><b>Briefing history.</b> The times of the last 14 briefings shown, to check that they arrive on time.</li>
   </ul>
 
@@ -344,9 +352,9 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
     <table>
       <thead><tr><th>Permission</th><th>Used for</th><th>Does data leave the phone?</th></tr></thead>
       <tbody>
-        <tr><td>Calendar<br><span class="perm">READ_CALENDAR</span></td><td>Today's events on Home and in the briefing</td><td><span class="onphone">No</span> read on the phone only</td></tr>
+        <tr><td>Calendar<br><span class="perm">READ_CALENDAR</span></td><td>Today's events on Home, in the widget and in the briefing</td><td><span class="onphone">No</span> read on the phone only</td></tr>
         <tr><td>Notifications<br><span class="perm">POST_NOTIFICATIONS</span></td><td>Showing the daily briefing at your time</td><td><span class="onphone">No</span> the text is built on the phone</td></tr>
-        <tr><td>Approximate location<br><span class="perm">ACCESS_COARSE_LOCATION</span></td><td>The weather and place name where you are. Without it the app shows Bangkok.</td><td><span class="leaves">Partly</span> rough coordinates only, to the weather provider and Google's place-name service</td></tr>
+        <tr><td>Approximate location<br><span class="perm">ACCESS_COARSE_LOCATION</span></td><td>The weather, PM2.5 and place name where you are. Without it the app shows Bangkok's.</td><td><span class="leaves">Partly</span> rough coordinates only, to the weather provider and Google's place-name service</td></tr>
       </tbody>
     </table>
   </div>
@@ -355,7 +363,7 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
   <ul>
     <li>To sign you in and keep your to-dos and settings in step across phones.</li>
     <li>To send the daily briefing at your time in your time zone. The message sent through Firebase only wakes the app and carries no personal content; the app writes the briefing on the phone.</li>
-    <li>To show the weather where you are.</li>
+    <li>To show the weather and PM2.5 where you are.</li>
   </ul>
   <p>We do not use your data for advertising, build profiles, track how you use the app, or sell or rent data to anyone.</p>
 
@@ -369,7 +377,7 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
         <tr><td><a href="https://resend.com/legal/privacy-policy">Resend</a></td><td>Sends sign-in code emails</td><td>Your email address and the 6-digit code</td></tr>
         <tr><td><a href="https://firebase.google.com/support/privacy">Google Firebase Cloud Messaging</a></td><td>Delivers the briefing signal to your phone</td><td>Firebase installation ID</td></tr>
         <tr><td><a href="https://policies.google.com/privacy">Google</a></td><td>Sign in with Google (if you choose it) and Android's place-name service</td><td>The sign-in request, and rough coordinates to find the place name</td></tr>
-        <tr><td><a href="https://openweather.co.uk/privacy-policy">OpenWeather</a></td><td>Current weather and forecast</td><td>Rough coordinates and your language</td></tr>
+        <tr><td><a href="https://openweather.co.uk/privacy-policy">OpenWeather</a></td><td>Current weather, forecast and PM2.5</td><td>Rough coordinates and your language</td></tr>
       </tbody>
     </table>
   </div>
@@ -379,7 +387,7 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
   <ul>
     <li>Account data is kept while your account exists. A to-do you delete is removed from the server at the next sync.</li>
     <li>The briefing log is kept for 90 days, then deleted automatically.</li>
-    <li>Signing out removes that phone's notification ID from the server and clears to-dos, settings, weather cache and PIN from the phone. Your account data stays so you can sign in again.</li>
+    <li>Signing out removes that phone's notification ID from the server and clears to-dos, settings, weather cache and PIN from the phone, and the widgets go back to counts only. Your account data stays so you can sign in again.</li>
     <li>Deleting your account removes everything listed above from the server at once.</li>
   </ul>
 
@@ -430,8 +438,8 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
   var dates = document.getElementById('dates');
   var buttons = document.querySelectorAll('[data-lang]');
   var text = {
-    th: { title: 'นโยบายความเป็นส่วนตัว', dates: 'มีผลตั้งแต่ 8 ตุลาคม 2569 · ปรับปรุงล่าสุด 13 ตุลาคม 2569' },
-    en: { title: 'Privacy policy', dates: 'Effective 8 October 2026 · Last updated 13 October 2026' }
+    th: { title: 'นโยบายความเป็นส่วนตัว', dates: 'มีผลตั้งแต่ 8 ตุลาคม 2569 · ปรับปรุงล่าสุด 14 ตุลาคม 2569' },
+    en: { title: 'Privacy policy', dates: 'Effective 8 October 2026 · Last updated 14 October 2026' }
   };
   function show(lang) {
     th.hidden = lang !== 'th';
