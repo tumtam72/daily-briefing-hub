@@ -154,7 +154,7 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
 <div class="wrap">
 
 <!-- ======================================================== ภาษาไทย -->
-<article id="th" lang="th">
+<article id="policy-th" lang="th">
   <section class="summary" aria-labelledby="th-summary">
     <h2 id="th-summary">สรุปสั้นๆ</h2>
     <ul>
@@ -290,7 +290,7 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
 </article>
 
 <!-- ======================================================== English -->
-<article id="en" lang="en">
+<article id="policy-en" lang="en">
   <section class="summary" aria-labelledby="en-summary">
     <h2 id="en-summary">In short</h2>
     <ul>
@@ -434,8 +434,10 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
 
 <script>
 (function () {
-  var th = document.getElementById('th');
-  var en = document.getElementById('en');
+  // Not ids "th" and "en": a #th or #en link (the app's Settings link) would make the browser jump
+  // past the title to the article. Those links only pick the language.
+  var th = document.getElementById('policy-th');
+  var en = document.getElementById('policy-en');
   var title = document.getElementById('title');
   var dates = document.getElementById('dates');
   var buttons = document.querySelectorAll('[data-lang]');
@@ -467,14 +469,7 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
   var lang = hash.indexOf('en') === 0 ? 'en' : hash.indexOf('th') === 0 ? 'th' : browser;
   if (hash === 'delete') hash = lang + '-delete';
   show(lang);
-  if (hash === lang) {
-    // #th or #en alone (the app's Settings link) only picks the language: back to the title, after
-    // the browser's own jump to the element with that id.
-    var top = function () { window.scrollTo(0, 0); };
-    top();
-    window.addEventListener('load', top);
-  }
-  var target = hash && hash !== lang && document.getElementById(hash);
+  var target = hash && document.getElementById(hash);
   if (target && target.scrollIntoView) {
     // Instant: the page's smooth scrolling gets interrupted while it loads and stops near the top.
     // Again after load, because the browser then scrolls for the original #fragment (#delete has no element).
