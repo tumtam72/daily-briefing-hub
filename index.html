@@ -467,7 +467,14 @@ footer { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line);
   var lang = hash.indexOf('en') === 0 ? 'en' : hash.indexOf('th') === 0 ? 'th' : browser;
   if (hash === 'delete') hash = lang + '-delete';
   show(lang);
-  var target = hash && document.getElementById(hash);
+  if (hash === lang) {
+    // #th or #en alone (the app's Settings link) only picks the language: back to the title, after
+    // the browser's own jump to the element with that id.
+    var top = function () { window.scrollTo(0, 0); };
+    top();
+    window.addEventListener('load', top);
+  }
+  var target = hash && hash !== lang && document.getElementById(hash);
   if (target && target.scrollIntoView) {
     // Instant: the page's smooth scrolling gets interrupted while it loads and stops near the top.
     // Again after load, because the browser then scrolls for the original #fragment (#delete has no element).
