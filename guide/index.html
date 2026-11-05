@@ -1,0 +1,1416 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Daily Briefing Hub · คู่มือการใช้งาน</title>
+<meta name="description" content="คู่มือการใช้งานแอป Daily Briefing Hub / User guide for the Daily Briefing Hub app">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Noto+Serif+Thai:wght@500;600&display=swap">
+<style>
+/* Same palette and type as the privacy policy page (site/privacy). Sections pair a reading column
+   with a phone showing the real screen; below 760px the phone drops under the text. */
+:root {
+  --bg: #f5f8f9;
+  --surface: #ffffff;
+  --fg: #12232a;
+  --muted: #536a73;
+  --line: #d7e2e6;
+  --accent: #0e7490;
+  --accent-soft: #e0f2f7;
+  --sun: #d97706;
+  --sun-soft: #fdf1e1;
+  --sky-a: #cfeaf3;
+  --sky-b: #f6efe2;
+  --amber: #d97706; --amber-soft: #fdf1e1;
+  --violet: #7c3aed; --violet-soft: #efe9fd;
+  --teal: #0e7490; --teal-soft: #e0f2f7;
+  --rose: #e11d48; --rose-soft: #fde8ec;
+  --saffron: #ea8a00; --saffron-soft: #fdf0dc;
+  --sky: #0284c7; --sky-soft: #e0f0fa;
+  --font-display: "Noto Serif Thai", "Noto Serif", Georgia, serif;
+  --font-body: "IBM Plex Sans Thai", "Noto Sans Thai", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c171b; --surface: #12222a; --fg: #e3eef1; --muted: #93abb3; --line: #24383f;
+    --accent: #4fc3dc; --accent-soft: #123341; --sun: #f5b14c; --sun-soft: #33270f;
+    --sky-a: #0f2d38; --sky-b: #1c1a14;
+    --amber: #f5b14c; --amber-soft: #33270f; --violet: #b69cfb; --violet-soft: #251c3d;
+    --teal: #4fc3dc; --teal-soft: #123341; --rose: #fb7190; --rose-soft: #3a1820;
+    --saffron: #f7b44f; --saffron-soft: #362510; --sky: #6cc3f2; --sky-soft: #10283a;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html[lang="th"] .only-en, html[lang="en"] .only-th { display: none !important; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 16px/1.75 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 66rem; margin-inline: auto; }
+svg.i { width: 1em; height: 1em; flex: none; }
+
+/* ------------------------------------------------------------------ masthead */
+.masthead {
+  background: linear-gradient(170deg, var(--sky-a) 0%, var(--sky-b) 100%);
+  border-bottom: 1px solid var(--line);
+  padding-inline: 20px;
+  padding-block: 40px 0;
+  overflow: hidden;
+}
+.masthead .wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: end; }
+.masthead-text { padding-bottom: 40px; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand > svg { flex: none; width: 44px; height: 44px; }
+.brand-name { font-weight: 600; letter-spacing: 0.01em; }
+.brand-pkg { font: 400 12.5px/1.4 var(--font-mono); color: var(--muted); }
+h1 {
+  font: 600 clamp(2rem, 5vw, 2.9rem)/1.2 var(--font-display);
+  margin: 24px 0 8px;
+  text-wrap: balance;
+}
+.lede { font-size: 1.08rem; color: var(--muted); max-width: 34rem; margin: 0; text-wrap: pretty; }
+.dates { color: var(--muted); font-size: 0.88rem; margin: 10px 0 0; }
+.langs { display: flex; gap: 6px; margin-top: 20px; }
+.langs button {
+  font: 500 14px/1 var(--font-body);
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--fg);
+  cursor: pointer;
+}
+.langs button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.hero { position: relative; width: 330px; height: 300px; }
+.hero .phone { position: absolute; bottom: -150px; }
+.hero .phone:first-child { left: 0; transform: rotate(-4deg); }
+.hero .phone:last-child { right: 0; bottom: -175px; transform: rotate(5deg); }
+.hero .screen { width: 180px; border-width: 7px; border-radius: 26px; }
+
+/* ------------------------------------------------------------------ page */
+.page { padding-inline: 20px; padding-block: 8px 72px; }
+article { display: block; }
+h2 {
+  font: 600 clamp(1.45rem, 3vw, 1.75rem)/1.35 var(--font-display);
+  margin: 6px 0 10px;
+  text-wrap: balance;
+}
+h3 { font-size: 1.03rem; font-weight: 600; margin: 22px 0 4px; }
+p, li { max-width: 68ch; text-wrap: pretty; }
+p { margin: 8px 0; }
+ul, ol { margin: 8px 0; padding-left: 1.3em; }
+li { margin: 4px 0; }
+a { color: var(--accent); }
+b, strong { font-weight: 600; }
+.ui { font-weight: 600; color: var(--fg); white-space: nowrap; }
+.ui::before { content: "\201C"; color: var(--muted); font-weight: 400; }
+.ui::after { content: "\201D"; color: var(--muted); font-weight: 400; }
+.path { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 2px 6px; font-weight: 600; }
+.path span + span::before { content: "›"; color: var(--muted); font-weight: 400; margin-right: 6px; }
+.note { color: var(--muted); font-size: 0.93rem; }
+
+.section {
+  padding-block: 56px 8px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 8px;
+}
+.section:first-of-type { border-top: 0; }
+.eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.86rem; font-weight: 600; letter-spacing: 0.02em; color: var(--muted);
+  margin: 0 0 6px;
+}
+.tile {
+  display: inline-grid; place-items: center;
+  width: 34px; height: 34px; border-radius: 10px;
+  background: var(--accent-soft); color: var(--accent);
+  font-size: 19px; flex: none;
+}
+.tile.amber { background: var(--amber-soft); color: var(--amber); }
+.tile.violet { background: var(--violet-soft); color: var(--violet); }
+.tile.teal { background: var(--teal-soft); color: var(--teal); }
+.tile.rose { background: var(--rose-soft); color: var(--rose); }
+.tile.saffron { background: var(--saffron-soft); color: var(--saffron); }
+.tile.sky { background: var(--sky-soft); color: var(--sky); }
+
+.feature { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 56px; align-items: start; }
+.feature.flip { grid-template-columns: auto minmax(0, 1fr); }
+.feature.flip > figure { order: -1; }
+.feature > figure { margin: 0; position: sticky; top: 24px; }
+@media (max-width: 760px) {
+  .masthead .wrap { grid-template-columns: 1fr; }
+  .hero { display: none; }
+  .feature, .feature.flip { grid-template-columns: minmax(0, 1fr); }
+  .feature.flip > figure { order: 0; }
+  .feature > figure { position: static; justify-self: center; }
+}
+
+/* ------------------------------------------------------------------ phone frame */
+.phone { margin: 0; display: grid; justify-items: center; gap: 12px; }
+.screen {
+  position: relative;
+  width: 280px;
+  border: 10px solid #111827;
+  border-radius: 38px;
+  background: #111827;
+  overflow: hidden;
+  box-shadow: 0 0 0 1.5px #465262, 0 26px 50px rgba(8, 20, 30, 0.26), 0 6px 14px rgba(8, 20, 30, 0.14);
+}
+.screen img { display: block; width: 100%; height: auto; aspect-ratio: 540 / 1128; border-radius: 28px; }
+.screen::before {
+  content: ""; position: absolute; z-index: 1; left: 50%; top: 9px; transform: translateX(-50%);
+  width: 9px; height: 9px; border-radius: 50%; background: #08090d;
+}
+.hero .screen img { border-radius: 20px; }
+.phone figcaption { font-size: 0.86rem; color: var(--muted); text-align: center; max-width: 280px; }
+.pin {
+  position: absolute; z-index: 2;
+  left: var(--x); top: var(--y);
+  transform: translate(-50%, -50%);
+  width: 26px; height: 26px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--sun); color: #fff;
+  font: 600 13px/1 var(--font-body);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9), 0 3px 8px rgba(0, 0, 0, 0.35);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pin { color: #2a1a04; } }
+
+/* numbered legend matching the pins */
+ol.legend { list-style: none; padding: 0; margin: 14px 0; display: grid; gap: 10px; counter-reset: pin; }
+ol.legend li { counter-increment: pin; display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 12px; margin: 0; }
+ol.legend li::before {
+  content: counter(pin);
+  width: 26px; height: 26px; border-radius: 50%; margin-top: 1px;
+  display: grid; place-items: center;
+  background: var(--sun); color: var(--surface);
+  font: 600 13px/1 var(--font-body);
+}
+
+/* ------------------------------------------------------------------ table of contents */
+.intro {
+  margin-top: 32px;
+  padding: 22px 24px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.intro p { margin-top: 0; }
+.toc { list-style: none; padding: 0; margin: 14px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr)); gap: 8px; }
+.toc li { margin: 0; max-width: none; }
+.toc a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px; border-radius: 12px;
+  color: var(--fg); text-decoration: none; font-size: 0.95rem; font-weight: 500;
+  border: 1px solid transparent;
+}
+.toc a:hover { background: var(--bg); border-color: var(--line); }
+.toc .tile { width: 30px; height: 30px; font-size: 17px; border-radius: 9px; }
+
+/* ------------------------------------------------------------------ quick start */
+.steps { list-style: none; padding: 0; margin: 18px 0 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 14px; }
+.steps > li {
+  margin: 0; max-width: none;
+  padding: 18px 18px 16px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  position: relative;
+}
+.steps .num {
+  position: absolute; right: 16px; top: 12px;
+  font: 600 2.2rem/1 var(--font-display); color: var(--line);
+}
+.steps h3 { margin: 12px 0 4px; }
+.steps p { margin: 4px 0 0; font-size: 0.95rem; }
+
+.callout {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px;
+  margin: 16px 0; padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--sun-soft);
+  border: 1px solid color-mix(in srgb, var(--sun) 25%, transparent);
+  font-size: 0.95rem;
+}
+.callout > svg { font-size: 20px; color: var(--sun); margin-top: 3px; }
+.callout p { margin: 0; }
+.callout.info { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 22%, transparent); }
+.callout.info > svg { color: var(--accent); }
+
+/* ------------------------------------------------------------------ tables */
+.table-frame { overflow-x: auto; margin: 12px 0; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+table { width: 100%; border-collapse: collapse; font-size: 0.93rem; min-width: 30rem; }
+th, td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+th { font-weight: 600; color: var(--muted); font-size: 0.82rem; letter-spacing: 0.03em; background: var(--bg); }
+tr:last-child td { border-bottom: 0; }
+td:first-child { font-weight: 500; white-space: nowrap; }
+td .tile { width: 26px; height: 26px; font-size: 15px; border-radius: 8px; vertical-align: -7px; margin-right: 8px; }
+
+/* PM2.5 levels */
+.scale { display: flex; height: 10px; border-radius: 999px; overflow: hidden; margin: 18px 0 4px; }
+.scale span { flex: 1; }
+.dot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; margin-right: 8px; vertical-align: 0; }
+.lv1 { background: #38bdf8; } .lv2 { background: #22c55e; } .lv3 { background: #eab308; } .lv4 { background: #f97316; } .lv5 { background: #dc2626; }
+.num { font-family: var(--font-mono); font-size: 0.9em; white-space: nowrap; }
+
+/* ------------------------------------------------------------------ notification mock */
+.shade {
+  width: min(100%, 360px);
+  padding: 18px 14px;
+  border-radius: 28px;
+  background: linear-gradient(160deg, #24313a, #121a20);
+  box-shadow: 0 22px 44px rgba(8, 20, 30, 0.25);
+}
+.notif { background: #f8fafb; color: #17252c; border-radius: 22px; padding: 14px 16px 16px; font-size: 14px; line-height: 1.45; }
+.notif-head { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #5b6e76; }
+.notif-head .app { width: 20px; height: 20px; border-radius: 50%; background: #0e7490; display: grid; place-items: center; }
+.notif-head .app svg { width: 14px; height: 14px; }
+.notif-title { font-weight: 600; font-size: 15px; margin: 8px 0 8px; }
+.notif-row { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
+.notif-row svg { width: 18px; height: 18px; flex: none; }
+.notif-row .pm { width: 10px; height: 10px; margin-inline: 4px; border-radius: 50%; background: #eab308; flex: none; }
+.notif-caption { font-size: 0.86rem; color: var(--muted); text-align: center; margin-top: 12px; }
+
+/* update banner mock */
+.banner {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px; border-radius: 18px;
+  background: var(--surface); border: 1px solid var(--line);
+  max-width: 26rem; margin: 14px 0;
+}
+.banner .tile { width: 38px; height: 38px; font-size: 20px; }
+.banner div { flex: 1; line-height: 1.35; }
+.banner b { display: block; font-size: 0.95rem; }
+.banner small { color: var(--muted); font-size: 0.82rem; }
+.banner .btn { font-weight: 600; font-size: 0.86rem; color: #fff; background: var(--teal); border-radius: 999px; padding: 7px 14px; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .banner .btn { color: #06222b; } }
+
+/* ------------------------------------------------------------------ settings map */
+.settings-map { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 14px 16px; margin: 16px 0; }
+.group-label { font-size: 0.84rem; font-weight: 600; color: var(--accent); margin: 0 0 6px 4px; }
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
+  padding: 4px 16px;
+}
+.row { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.row b { display: block; font-size: 0.98rem; }
+.row span { color: var(--muted); font-size: 0.9rem; line-height: 1.55; }
+.row.danger b { color: var(--rose); }
+.row.danger .tile { background: var(--rose-soft); color: var(--rose); }
+
+/* sync columns */
+.split { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 14px; margin: 16px 0; }
+.split > div { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; }
+.split h3 { margin: 0 0 6px; display: flex; align-items: center; gap: 10px; }
+.split ul { margin: 0; }
+
+/* ------------------------------------------------------------------ FAQ */
+.faq { display: grid; gap: 10px; margin: 16px 0; }
+details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 0 18px; }
+summary {
+  cursor: pointer; list-style: none;
+  padding: 14px 28px 14px 0; position: relative;
+  font-weight: 600;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after {
+  content: ""; position: absolute; right: 4px; top: 50%;
+  width: 8px; height: 8px; margin-top: -6px;
+  border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg); transition: transform 0.15s;
+}
+details[open] summary::after { transform: rotate(-135deg); margin-top: -2px; }
+details > div { padding: 0 0 14px; }
+details > div p:first-child { margin-top: 0; }
+
+footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.88rem; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+footer a { color: var(--muted); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+</head>
+<body>
+
+<!-- Icons: the app's own line icons (res/drawable, drawn after Lucide, ISC licence) plus a few more. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-weather" viewBox="0 0 24 24"><path d="M12,2v2 M4.93,4.93l1.41,1.41 M20,12h2 M19.07,4.93l-1.41,1.41 M15.947,12.65a4,4 0,0 0,-5.925 -4.128 M13,22H7a5,5 0,1 1,4.9 -6H13a3,3 0,0 1,0 6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8,2v4 M16,2v4 M5,4h14a2,2 0,0 1,2 2v14a2,2 0,0 1,-2 2H5a2,2 0,0 1,-2 -2V6a2,2 0,0 1,2 -2z M3,10h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-tasks" viewBox="0 0 24 24"><path d="M5,3h14a2,2 0,0 1,2 2v14a2,2 0,0 1,-2 2H5a2,2 0,0 1,-2 -2V5a2,2 0,0 1,2 -2z M9,12l2,2l4,-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-lotus" viewBox="0 0 24 24"><path d="M12,20c-2,-1.6 -3,-4.1 -3,-7 0,-2.6 1.3,-5 3,-7 1.7,2 3,4.4 3,7 0,2.9 -1,5.4 -3,7z M12,20c-3.6,0 -7.2,-2.1 -8.3,-6.2 2.6,-0.5 5,0.4 6.4,2 M12,20c3.6,0 7.2,-2.1 8.3,-6.2 -2.6,-0.5 -5,0.4 -6.4,2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-quote" viewBox="0 0 24 24"><path d="M16,3a2,2 0,0 0,-2 2v6a2,2 0,0 0,2 2a1,1 0,0 1,1 1v1a2,2 0,0 1,-2 2a1,1 0,0 0,-1 1v2a1,1 0,0 0,1 1a6,6 0,0 0,6 -6V5a2,2 0,0 0,-2 -2z M5,3a2,2 0,0 0,-2 2v6a2,2 0,0 0,2 2a1,1 0,0 1,1 1v1a2,2 0,0 1,-2 2a1,1 0,0 0,-1 1v2a1,1 0,0 0,1 1a6,6 0,0 0,6 -6V5a2,2 0,0 0,-2 -2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6,8a6,6 0,0 1,12 0c0,7 3,9 3,9H3s3,-2 3,-9 M10.3,21a1.94,1.94 0,0 0,3.4 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><path d="M21,12a9,9 0,1 1,-18 0a9,9 0,1 1,18 0z M12,7v5l3,2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-layout" viewBox="0 0 24 24"><path d="M4,3h5a1,1 0,0 1,1 1v7a1,1 0,0 1,-1 1H4a1,1 0,0 1,-1 -1V4a1,1 0,0 1,1 -1z M15,3h5a1,1 0,0 1,1 1v3a1,1 0,0 1,-1 1h-5a1,1 0,0 1,-1 -1V4a1,1 0,0 1,1 -1z M15,12h5a1,1 0,0 1,1 1v7a1,1 0,0 1,-1 1h-5a1,1 0,0 1,-1 -1v-7a1,1 0,0 1,1 -1z M4,16h5a1,1 0,0 1,1 1v3a1,1 0,0 1,-1 1H4a1,1 0,0 1,-1 -1v-3a1,1 0,0 1,1 -1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2,12s3.5,-7 10,-7 10,7 10,7 -3.5,7 -10,7S2,12 2,12Z M15,12a3,3 0,1 1,-6 0a3,3 0,1 1,6 0z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12,22a10,10 0,1 1,10 -10c0,2.5 -2,3.5 -4,3.5h-2a2,2 0,0 0,-1.5 3.3A2,2 0,0 1,12 22z M8.5,10.5m-1,0a1,1 0,1 0,2 0a1,1 0,1 0,-2 0 M12,7.5m-1,0a1,1 0,1 0,2 0a1,1 0,1 0,-2 0 M16.5,10.5m-1,0a1,1 0,1 0,2 0a1,1 0,1 0,-2 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><path d="M21,12a9,9 0,1 1,-18 0a9,9 0,1 1,18 0z M3,12h18 M12,3a14,14 0,0 1,0 18 M12,3a14,14 0,0 0,0 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9,21H5a2,2 0,0 1,-2 -2V5a2,2 0,0 1,2 -2h4 M16,17l5,-5 -5,-5 M21,12H9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3,6h18 M19,6v14c0,1 -1,2 -2,2H7c-1,0 -2,-1 -2,-2V6 M8,6V4c0,-1 1,-2 2,-2h4c1,0 2,1 2,2v2 M10,11v6 M14,11v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20,13c0,5 -3.5,7.5 -7.66,8.95a1,1 0,0 1,-0.67,-0.01C7.5,20.5 4,18 4,13V6a1,1 0,0 1,1,-1c2,0 4.5,-1.2 6.24,-2.72a1.17,1.17 0,0 1,1.52,0C14.51,3.81 17,5 19,5a1,1 0,0 1,1,1Z M9,12l2,2 4,-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-umbrella" viewBox="0 0 24 24"><path d="M22,12a10,10 0,0 0,-20 0z M12,12v7a2,2 0,0 0,4 0 M12,2v1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-place" viewBox="0 0 24 24"><path d="M20,10c0,6 -8,12 -8,12s-8,-6 -8,-12a8,8 0,0 1,16 0z M12,7a3,3 0,1 1,0 6a3,3 0,1 1,0 -6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21,15v4a2,2 0,0 1,-2 2H5a2,2 0,0 1,-2 -2v-4 M7,10l5,5 5,-5 M12,15V3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-dust" viewBox="0 0 24 24"><path d="M3,10h9 M3,14h13 M3,18h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.5,6a1.5,1.5 0,1 0,3 0a1.5,1.5 0,1 0,-3 0z M20,11a1,1 0,1 0,2 0a1,1 0,1 0,-2 0z M12,5a1,1 0,1 0,2 0a1,1 0,1 0,-2 0z M18.5,17a1.5,1.5 0,1 0,3 0a1.5,1.5 0,1 0,-3 0z" fill="currentColor"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12,7v14 M3,18a1,1 0,0 1,-1 -1V4a1,1 0,0 1,1 -1h5a4,4 0,0 1,4 4a4,4 0,0 1,4 -4h5a1,1 0,0 1,1 1v13a1,1 0,0 1,-1 1h-6a3,3 0,0 0,-3 3a3,3 0,0 0,-3 -3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><path d="M5,11h14a2,2 0,0 1,2 2v7a2,2 0,0 1,-2 2H5a2,2 0,0 1,-2 -2v-7a2,2 0,0 1,2 -2z M7,11V7a5,5 0,0 1,10 0v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4,4h16a2,2 0,0 1,2 2v12a2,2 0,0 1,-2 2H4a2,2 0,0 1,-2 -2V6a2,2 0,0 1,2 -2z M22,7l-10,6L2,7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M7,2h10a2,2 0,0 1,2 2v16a2,2 0,0 1,-2 2H7a2,2 0,0 1,-2 -2V4a2,2 0,0 1,2 -2z M12,18h0.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5,19H9a7,7 0,1 1,6.7 -9h1.8a4.5,4.5 0,1 1,0 9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24"><path d="M21,12a9,9 0,1 1,-18 0a9,9 0,1 1,18 0z M9.1,9a3,3 0,0 1,5.8 1c0,2 -3,3 -3,3 M12,17h0.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><path d="M12,8a4,4 0,1 0,0 8a4,4 0,1 0,0 -8z M12,2v2 M12,20v2 M4.93,4.93l1.41,1.41 M17.66,17.66l1.41,1.41 M2,12h2 M20,12h2 M6.34,17.66l-1.41,1.41 M19.07,4.93l-1.41,1.41" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><path d="M21,12a9,9 0,1 1,-18 0a9,9 0,1 1,18 0z M12,16v-4 M12,8h0.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="masthead-text">
+      <div class="brand">
+        <svg viewBox="0 0 44 44" aria-hidden="true">
+          <defs>
+            <linearGradient id="brand-sky" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#0e7490"/>
+              <stop offset="1" stop-color="#155e75"/>
+            </linearGradient>
+          </defs>
+          <rect width="44" height="44" rx="12" fill="url(#brand-sky)"/>
+          <circle cx="29" cy="17" r="7" fill="#f59e0b"/>
+          <path d="M9 31h26" stroke="#cffafe" stroke-width="3" stroke-linecap="round"/>
+          <path d="M9 24h12" stroke="#cffafe" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+        </svg>
+        <div>
+          <div class="brand-name">Daily Briefing Hub</div>
+          <div class="brand-pkg">com.dailybriefing.hub · Android</div>
+        </div>
+      </div>
+      <h1 id="title">คู่มือการใช้งาน</h1>
+      <p class="lede" id="lede">ทุกอย่างที่ต้องรู้ ตั้งแต่เข้าสู่ระบบครั้งแรก จนถึงสรุปตอนเช้าและ widget บนหน้าจอหลัก</p>
+      <p class="dates" id="dates">ปรับปรุงล่าสุด 5 พฤศจิกายน 2569</p>
+      <div class="langs" role="group" aria-label="ภาษา / Language">
+        <button type="button" data-lang="th" aria-pressed="true">ไทย</button>
+        <button type="button" data-lang="en" aria-pressed="false">English</button>
+      </div>
+    </div>
+    <div class="hero" aria-hidden="true">
+      <div class="phone"><div class="screen">
+        <img class="only-th" src="img/th-home.webp" alt="" width="540" height="1128">
+        <img class="only-en" src="img/en-home.webp" alt="" width="540" height="1128">
+      </div></div>
+      <div class="phone"><div class="screen">
+        <img class="only-th" src="img/th-home-dark.webp" alt="" width="540" height="1128">
+        <img class="only-en" src="img/en-home-dark.webp" alt="" width="540" height="1128">
+      </div></div>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+<div class="wrap">
+
+<!-- ======================================================== ภาษาไทย -->
+<article id="guide-th" lang="th">
+
+  <section class="intro" aria-labelledby="th-contents">
+    <p id="th-contents">Daily Briefing Hub รวมอากาศ ค่าฝุ่น PM2.5 นัดหมายวันนี้ สิ่งที่ต้องทำ วันหยุดและวันพระ และคำคมประจำวันไว้ในหน้าเดียว
+      แล้วส่งสรุปมาให้ทุกวันตามเวลาที่คุณเลือก เลือกหัวข้อที่อยากอ่านได้เลย</p>
+    <ul class="toc">
+      <li><a href="#th-start"><span class="tile teal"><svg class="i"><use href="#i-phone"/></svg></span>เริ่มต้นใช้งาน</a></li>
+      <li><a href="#th-home"><span class="tile"><svg class="i"><use href="#i-layout"/></svg></span>หน้าหลัก</a></li>
+      <li><a href="#th-weather"><span class="tile amber"><svg class="i"><use href="#i-weather"/></svg></span>อากาศและฝุ่น PM2.5</a></li>
+      <li><a href="#th-events"><span class="tile violet"><svg class="i"><use href="#i-calendar"/></svg></span>นัดหมายและวันสำคัญ</a></li>
+      <li><a href="#th-todos"><span class="tile teal"><svg class="i"><use href="#i-tasks"/></svg></span>สิ่งที่ต้องทำ</a></li>
+      <li><a href="#th-briefing"><span class="tile amber"><svg class="i"><use href="#i-bell"/></svg></span>สรุปประจำวัน</a></li>
+      <li><a href="#th-widget"><span class="tile sky"><svg class="i"><use href="#i-layout"/></svg></span>Widget หน้าจอหลัก</a></li>
+      <li><a href="#th-cards"><span class="tile saffron"><svg class="i"><use href="#i-layout"/></svg></span>จัดการ์ดหน้าหลัก</a></li>
+      <li><a href="#th-settings"><span class="tile"><svg class="i"><use href="#i-palette"/></svg></span>การตั้งค่า</a></li>
+      <li><a href="#th-security"><span class="tile rose"><svg class="i"><use href="#i-lock"/></svg></span>PIN และบัญชี</a></li>
+      <li><a href="#th-devices"><span class="tile"><svg class="i"><use href="#i-cloud"/></svg></span>หลายเครื่องและออฟไลน์</a></li>
+      <li><a href="#th-faq"><span class="tile violet"><svg class="i"><use href="#i-help"/></svg></span>คำถามที่พบบ่อย</a></li>
+    </ul>
+  </section>
+
+  <!-- ---------------------------------------------------- start -->
+  <section class="section" id="th-start" aria-labelledby="th-start-h">
+    <p class="eyebrow"><span class="tile teal"><svg class="i"><use href="#i-phone"/></svg></span>1 · เริ่มต้นใช้งาน</p>
+    <h2 id="th-start-h">เริ่มใช้งานใน 3 ขั้นตอน</h2>
+    <p>เปิดแอปครั้งแรก แอปจะพาไปทีละขั้น ใช้เวลาไม่ถึง 2 นาที</p>
+    <ol class="steps">
+      <li>
+        <span class="num" aria-hidden="true">1</span>
+        <span class="tile teal"><svg class="i"><use href="#i-mail"/></svg></span>
+        <h3>เข้าสู่ระบบ</h3>
+        <p>แตะ <span class="ui">ดำเนินการต่อด้วย Google</span> หรือพิมพ์อีเมลแล้วแตะ <span class="ui">ส่งรหัสเข้าอีเมล</span>
+          จากนั้นกรอกรหัส 6 หลักที่ได้รับแล้วแตะ <span class="ui">ยืนยัน</span>
+          ถ้าใช้ครั้งแรก ระบบจะสร้างบัญชีให้เอง ไม่ต้องสมัครก่อน</p>
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">2</span>
+        <span class="tile rose"><svg class="i"><use href="#i-lock"/></svg></span>
+        <h3>ตั้ง PIN 6 หลัก</h3>
+        <p>กดตัวเลข 6 หลัก แล้วใส่ซ้ำอีกครั้งให้ตรงกัน PIN นี้ใช้ปลดล็อกแอปในเครื่องนี้ ไม่ใช่รหัสของบัญชี</p>
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">3</span>
+        <span class="tile amber"><svg class="i"><use href="#i-shield"/></svg></span>
+        <h3>อนุญาตสิทธิ์</h3>
+        <p>แตะ <span class="ui">อนุญาต</span> ทีละรายการ (ปฏิทิน การแจ้งเตือน ตำแหน่ง) แล้วแตะ <span class="ui">เริ่มใช้งาน</span>
+          ไม่อยากให้ตอนนี้ก็แตะ <span class="ui">ไว้ทีหลัง</span> ได้</p>
+      </li>
+    </ol>
+    <div class="callout">
+      <svg class="i"><use href="#i-mail"/></svg>
+      <p><b>ไม่ได้รับรหัสทางอีเมล?</b> ดูในโฟลเดอร์จดหมายขยะหรือสแปม ถ้ายังไม่มี รอ 60 วินาทีแล้วแตะ <span class="ui">ส่งรหัสใหม่</span>
+        ถ้าพิมพ์อีเมลผิด แตะ <span class="ui">เปลี่ยนอีเมล</span> รหัสมีอายุจำกัด ใช้รหัสล่าสุดเสมอ</p>
+    </div>
+    <h3>สิทธิ์ที่แอปขอ และถ้าไม่อนุญาตจะเป็นอย่างไร</h3>
+    <div class="table-frame">
+      <table>
+        <thead><tr><th>สิทธิ์</th><th>ใช้ทำอะไร</th><th>ถ้าไม่อนุญาต</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tile violet"><svg class="i"><use href="#i-calendar"/></svg></span>ปฏิทิน</td><td>แสดงนัดหมายวันนี้ อ่านในเครื่องเท่านั้น ไม่ส่งขึ้นเซิร์ฟเวอร์</td><td>การ์ดนัดหมายจะมีปุ่ม <span class="ui">อนุญาตปฏิทิน</span> ไว้กดภายหลัง</td></tr>
+          <tr><td><span class="tile amber"><svg class="i"><use href="#i-bell"/></svg></span>การแจ้งเตือน</td><td>ส่งสรุปประจำวันตามเวลาที่ตั้ง</td><td>ไม่มีแจ้งเตือน เปิดได้ภายหลังในหน้าตั้งค่า</td></tr>
+          <tr><td><span class="tile sky"><svg class="i"><use href="#i-place"/></svg></span>ตำแหน่ง</td><td>อากาศและฝุ่นในพื้นที่ของคุณ ใช้แค่ตำแหน่งคร่าวๆ</td><td>แสดงอากาศของกรุงเทพฯ พร้อมปุ่ม <span class="ui">ใช้ตำแหน่งของฉัน</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- home -->
+  <section class="section" id="th-home" aria-labelledby="th-home-h">
+    <div class="feature">
+      <div>
+        <p class="eyebrow"><span class="tile"><svg class="i"><use href="#i-layout"/></svg></span>2 · หน้าหลัก</p>
+        <h2 id="th-home-h">ทั้งวันของคุณในหน้าเดียว</h2>
+        <p>หน้าหลักเรียงข้อมูลของวันนี้เป็นการ์ด เลื่อนลงเพื่อดูการ์ดถัดไป <b>ดึงหน้าจอลง</b>เมื่ออยากโหลดข้อมูลใหม่</p>
+        <ol class="legend">
+          <li><span><b>คำทักทายและวันที่</b> เปลี่ยนตามช่วงเวลา อรุณสวัสดิ์ สวัสดีตอนบ่าย หรือสวัสดีตอนเย็น ท้องฟ้าด้านหลังก็เปลี่ยนสีตามไปด้วย</span></li>
+          <li><span><b>ปุ่มตั้งค่า</b> (รูปเฟือง) ธีม ภาษา เวลาแจ้งเตือน การ์ดหน้าหลัก และบัญชี</span></li>
+          <li><span><b>การ์ดอากาศ</b> อุณหภูมิตอนนี้ สูงสุด ต่ำสุด โอกาสฝน และพยากรณ์ช่วงถัดไป แตะเพื่อดูรายละเอียดทั้งหมด</span></li>
+          <li><span><b>ฝุ่นและฝน</b> ชิปค่า PM2.5 สีตามระดับ และชิปเตือนฝนเมื่อวันนี้ฝนน่าจะตก</span></li>
+          <li><span><b>สิ่งที่ต้องทำ</b> วงแหวนมุมขวาบอกว่าเสร็จไปกี่รายการจากทั้งหมด</span></li>
+        </ol>
+        <p>การ์ดมีทั้งหมด 5 ใบ ได้แก่ สภาพอากาศ นัดหมายวันนี้ สิ่งที่ต้องทำ คำคมประจำวัน และวันสำคัญ
+          ซ่อนใบที่ไม่ใช้หรือเรียงใหม่ได้ (ดู<a href="#th-cards">จัดการ์ดหน้าหลัก</a>)</p>
+        <p class="note">ถ้าไม่มีอินเทอร์เน็ต การ์ดอากาศจะขึ้นว่า <span class="ui">ออฟไลน์ · อัปเดตล่าสุด …</span> และแสดงข้อมูลชุดล่าสุดที่เก็บไว้</p>
+      </div>
+      <figure class="phone">
+        <div class="screen">
+          <img src="img/th-home.webp" alt="หน้าหลักของแอป: คำทักทาย การ์ดอากาศ 31 องศา ค่าฝุ่น 31 ปานกลาง และรายการสิ่งที่ต้องทำ" width="540" height="1128" loading="lazy">
+          <span class="pin" style="--x:58%; --y:8.6%">1</span>
+          <span class="pin" style="--x:79%; --y:9.8%">2</span>
+          <span class="pin" style="--x:56%; --y:25%">3</span>
+          <span class="pin" style="--x:89%; --y:37.2%">4</span>
+          <span class="pin" style="--x:60%; --y:57.2%">5</span>
+        </div>
+        <figcaption>หน้าหลักตอนเช้า (ข้อมูลตัวอย่าง)</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- weather -->
+  <section class="section" id="th-weather" aria-labelledby="th-weather-h">
+    <div class="feature flip">
+      <div>
+        <p class="eyebrow"><span class="tile amber"><svg class="i"><use href="#i-weather"/></svg></span>3 · อากาศและฝุ่น PM2.5</p>
+        <h2 id="th-weather-h">รู้ก่อนออกจากบ้าน ว่าต้องพกร่มหรือใส่หน้ากากไหม</h2>
+        <p>แตะการ์ดอากาศบนหน้าหลักเพื่อเปิดหน้ารายละเอียด มีข้อมูลดังนี้</p>
+        <ul>
+          <li><b>เตือนฝน</b> ถ้าช่วง 07:00–21:00 ของวันนี้มีโอกาสฝนตั้งแต่ 40% ขึ้นไป แอปจะบอกช่วงเวลาและแนะนำให้พกร่ม ถ้าฝนกำลังตกอยู่จะขึ้นว่า <span class="ui">ฝนกำลังตก</span></li>
+          <li><b>ฝุ่น PM2.5</b> ค่าตอนนี้ ระดับและสีตามเกณฑ์ของกรมควบคุมมลพิษ คำแนะนำ และค่าคาดการณ์ เช่น บ่ายนี้ คืนนี้ พรุ่งนี้เช้า</li>
+          <li><b>24 ชั่วโมงข้างหน้า</b> กราฟอุณหภูมิและโอกาสฝนทุก 3 ชั่วโมง</li>
+          <li><b>รู้สึกเหมือน ความชื้น ลม ทัศนวิสัย</b> พร้อมคำอธิบายสั้นๆ ว่าค่านั้นหมายความว่าอะไร</li>
+          <li><b>พระอาทิตย์ขึ้นและตก</b> และความยาวของกลางวัน</li>
+          <li><b>5 วันข้างหน้า</b> สูงสุด ต่ำสุด และโอกาสฝนของแต่ละวัน</li>
+        </ul>
+        <h3>ระดับฝุ่น PM2.5 ที่แอปใช้</h3>
+        <div class="scale" aria-hidden="true"><span class="lv1"></span><span class="lv2"></span><span class="lv3"></span><span class="lv4"></span><span class="lv5"></span></div>
+        <div class="table-frame">
+          <table>
+            <thead><tr><th>ระดับ</th><th>ค่า (µg/m³)</th><th>คำแนะนำในแอป</th></tr></thead>
+            <tbody>
+              <tr><td><span class="dot lv1"></span>ดีมาก</td><td class="num">0–15</td><td>อากาศดีมาก เหมาะกับกิจกรรมกลางแจ้ง</td></tr>
+              <tr><td><span class="dot lv2"></span>ดี</td><td class="num">16–25</td><td>ทำกิจกรรมกลางแจ้งได้ตามปกติ</td></tr>
+              <tr><td><span class="dot lv3"></span>ปานกลาง</td><td class="num">26–37</td><td>ทำได้ตามปกติ ถ้าไอ หายใจลำบาก หรือแสบตา ให้ลดเวลาอยู่ข้างนอก</td></tr>
+              <tr><td><span class="dot lv4"></span>เริ่มมีผลกระทบต่อสุขภาพ</td><td class="num">38–75</td><td>ลดเวลากลางแจ้ง ถ้าอยู่ข้างนอกนานควรใส่หน้ากากกันฝุ่น</td></tr>
+              <tr><td><span class="dot lv5"></span>มีผลกระทบต่อสุขภาพ</td><td class="num">76 ขึ้นไป</td><td>อยู่ในอาคารถ้าทำได้ ใส่หน้ากากเมื่อออกไปข้างนอก</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">ข้อมูลอากาศและฝุ่นมาจาก OpenWeather ค่าฝุ่นมาจากแบบจำลอง ไม่ใช่สถานีวัด จึงอาจต่างจากสถานีใกล้บ้านเล็กน้อย</p>
+        <div class="callout info">
+          <svg class="i"><use href="#i-place"/></svg>
+          <p><b>อากาศขึ้นเป็นกรุงเทพฯ?</b> แปลว่ายังไม่ได้อนุญาตตำแหน่ง แตะ <span class="ui">ใช้ตำแหน่งของฉัน</span> บนการ์ดอากาศ แล้วเลือกอนุญาต แอปใช้แค่ตำแหน่งคร่าวๆ ระดับเขตหรืออำเภอ</p>
+        </div>
+      </div>
+      <figure class="phone">
+        <div class="screen"><img src="img/th-weather.webp" alt="หน้ารายละเอียดอากาศ: เตือนฝนช่วงบ่าย การ์ดฝุ่น PM2.5 ระดับปานกลาง และกราฟ 24 ชั่วโมง" width="540" height="1128" loading="lazy"></div>
+        <figcaption>หน้ารายละเอียดอากาศ</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- events + special days -->
+  <section class="section" id="th-events" aria-labelledby="th-events-h">
+    <div class="feature">
+      <div>
+        <p class="eyebrow"><span class="tile violet"><svg class="i"><use href="#i-calendar"/></svg></span>4 · นัดหมายและวันสำคัญ</p>
+        <h2 id="th-events-h">นัดวันนี้ วันหยุด และวันพระ</h2>
+        <h3>นัดหมายวันนี้</h3>
+        <ul>
+          <li>แอปอ่านนัดจากปฏิทินในเครื่อง เช่น Google Calendar หรือ Samsung Calendar ที่ซิงค์ไว้ในเครื่อง <b>นัดหมายไม่ถูกส่งขึ้นเซิร์ฟเวอร์</b></li>
+          <li>นัดที่ใกล้ถึงจะมีป้ายบอกเวลา เช่น <span class="ui">อีก 1 ชม.</span></li>
+          <li>ถ้าวันนี้ไม่มีนัด แอปจะบอกนัดถัดไปภายใน 14 วัน</li>
+          <li>แตะนัดเพื่อเปิดในแอปปฏิทิน หรือแตะ <span class="ui">เปิดปฏิทิน</span></li>
+          <li>เพิ่มหรือแก้นัดในแอปปฏิทินของเครื่อง แล้วกลับมาที่แอปนี้ รายการจะอัปเดตเอง</li>
+        </ul>
+        <h3>วันสำคัญ</h3>
+        <ul>
+          <li>แสดงวันหยุดราชการและวันพระ 3 วันที่ใกล้ที่สุด พร้อมบอกว่าอีกกี่วัน</li>
+          <li>วันที่เป็น<b>วันหยุดราชการ</b>จะมีกรอบวันที่สีส้มเหลือง ส่วนวันพระทั่วไปเป็นกรอบเส้น</li>
+          <li>ถ้าพรุ่งนี้เป็นวันหยุดหรือวันพระ สรุปประจำวันจะบอกให้ด้วย</li>
+        </ul>
+        <h3>คำคมประจำวัน</h3>
+        <p>เปลี่ยนวันละครั้ง ตามภาษาที่ใช้ในแอป</p>
+      </div>
+      <figure class="phone">
+        <div class="screen"><img src="img/th-special.webp" alt="การ์ดวันสำคัญแสดงวันพระและวันปิยมหาราช และการ์ดนัดหมายวันนี้ 2 นัด" width="540" height="1128" loading="lazy"></div>
+        <figcaption>การ์ดวันสำคัญ นัดหมาย และคำคม</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- todos -->
+  <section class="section" id="th-todos" aria-labelledby="th-todos-h">
+    <div class="feature flip">
+      <div>
+        <p class="eyebrow"><span class="tile teal"><svg class="i"><use href="#i-tasks"/></svg></span>5 · สิ่งที่ต้องทำ</p>
+        <h2 id="th-todos-h">จดงาน ตั้งกำหนดส่ง แล้วติ๊กเมื่อเสร็จ</h2>
+        <h3>เพิ่มงาน</h3>
+        <ol>
+          <li>แตะ <span class="ui">+ เพิ่มงาน</span> ท้ายการ์ดสิ่งที่ต้องทำ</li>
+          <li>พิมพ์ชื่องาน</li>
+          <li>เลือกกำหนดส่ง: <span class="ui">ไม่มี</span> <span class="ui">วันนี้</span> <span class="ui">พรุ่งนี้</span> หรือ <span class="ui">เลือกวัน</span> จากปฏิทิน</li>
+          <li>แตะ <span class="ui">บันทึก</span></li>
+        </ol>
+        <h3>ติ๊ก แก้ไข และลบ</h3>
+        <ul>
+          <li><b>ทำเสร็จ</b> แตะวงกลมหน้างาน แล้วแตะ <span class="ui">เสร็จแล้ว</span> งานจะย้ายไปรวมที่ <span class="ui">เสร็จแล้ว N รายการ</span> ท้ายการ์ด แตะบรรทัดนั้นเพื่อแสดงหรือซ่อน</li>
+          <li><b>เปลี่ยนใจ</b> แตะวงกลมของงานที่เสร็จแล้ว แล้วแตะ <span class="ui">ยังไม่เสร็จ</span></li>
+          <li><b>แก้ไข</b> แตะที่ชื่องาน เปลี่ยนชื่อหรือกำหนดส่ง แล้วแตะ <span class="ui">บันทึก</span></li>
+          <li><b>ลบ</b> แตะชื่องาน แตะปุ่มถังขยะสีแดงมุมขวาบน แล้วยืนยัน <span class="ui">ลบ</span> ลบแล้วกู้คืนไม่ได้</li>
+        </ul>
+        <h3>งานจัดกลุ่มตามกำหนดส่ง</h3>
+        <p>เมื่อมีงานที่ตั้งกำหนดส่ง การ์ดจะแยกเป็น <b style="color:var(--rose)">เลยกำหนด</b> <b>วันนี้</b> และ <b>ถัดไป</b>
+          งานที่เลยกำหนดมีป้ายสีแดงบอกว่าเลยมาแล้วกี่วัน งานที่ครบกำหนดวันนี้และงานที่เลยกำหนดจะอยู่ในสรุปตอนเช้าด้วย</p>
+        <div class="callout info">
+          <svg class="i"><use href="#i-cloud"/></svg>
+          <p><b>ใช้ได้แม้ไม่มีเน็ต</b> เพิ่ม ติ๊ก หรือแก้งานได้ตามปกติ แอปจะซิงค์ให้เมื่อกลับมาออนไลน์ งานเก็บในบัญชีของคุณ จึงเห็นเหมือนกันทุกเครื่องที่ล็อกอิน</p>
+        </div>
+      </div>
+      <figure class="phone">
+        <div class="screen"><img src="img/th-todos.webp" alt="หน้าแก้ไขงาน: ช่องชื่องาน ตัวเลือกกำหนดส่ง ไม่มี วันนี้ พรุ่งนี้ เลือกวัน และปุ่มบันทึก" width="540" height="1128" loading="lazy"></div>
+        <figcaption>หน้าแก้ไขงาน เปิดจากการแตะชื่องาน</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- briefing -->
+  <section class="section" id="th-briefing" aria-labelledby="th-briefing-h">
+    <div class="feature">
+      <div>
+        <p class="eyebrow"><span class="tile amber"><svg class="i"><use href="#i-bell"/></svg></span>6 · สรุปประจำวัน</p>
+        <h2 id="th-briefing-h">สรุปส่งถึงทุกวัน แม้ไม่ได้เปิดแอป</h2>
+        <p>ทุกวันตามเวลาที่ตั้ง (เริ่มต้น <b>08:00</b>) แอปจะแจ้งเตือนสรุปของวันนี้ ดึงแจ้งเตือนลงเพื่อดูแบบเต็ม แตะเพื่อเปิดแอป ในสรุปมี</p>
+        <ul>
+          <li>อากาศตอนนี้และอุณหภูมิสูงสุด</li>
+          <li>ค่าฝุ่น PM2.5 และระดับ</li>
+          <li>ช่วงที่ฝนน่าจะตก (ถ้ามี)</li>
+          <li>จำนวนนัดหมายวันนี้และเวลาที่เริ่ม</li>
+          <li>งานที่ครบกำหนดวันนี้และงานที่เลยกำหนด</li>
+          <li>พรุ่งนี้เป็นวันหยุดหรือวันพระ (ถ้ามี)</li>
+        </ul>
+        <h3>เปลี่ยนเวลา หรือปิดแจ้งเตือน</h3>
+        <p><span class="path"><span>ตั้งค่า</span><span>สรุปประจำวัน</span><span>เวลาส่งสรุป</span></span> เลือกเวลาแล้วแตะ <span class="ui">ตกลง</span>
+          ถ้าไม่อยากได้แจ้งเตือน ปิดสวิตช์ <span class="ui">แจ้งเตือนทุกวัน</span></p>
+        <h3>แจ้งเตือนไม่มา?</h3>
+        <ul>
+          <li>ดูว่าสวิตช์ <span class="ui">แจ้งเตือนทุกวัน</span> เปิดอยู่ ถ้าการแจ้งเตือนของแอปถูกปิดที่ตัวเครื่อง หน้าตั้งค่าจะขึ้นข้อความสีแดงพร้อมปุ่ม <span class="ui">เปิดตั้งค่าเครื่อง</span></li>
+          <li>ถ้าสัญญาณจากเซิร์ฟเวอร์มาไม่ถึงตรงเวลา เช่น เน็ตหลุด แอปจะสร้างสรุปเองภายในประมาณ 15 นาทีหลังเวลาที่ตั้ง</li>
+          <li>ถ้ามาช้าบ่อย ให้ตั้งการใช้แบตเตอรี่ของแอปเป็น <b>ไม่จำกัด</b> (Unrestricted) ในการตั้งค่าแอปของเครื่อง และอย่าใส่แอปไว้ในกลุ่มแอปที่พักการทำงาน</li>
+        </ul>
+      </div>
+      <figure class="phone" aria-label="ตัวอย่างแจ้งเตือนสรุปประจำวัน">
+        <div class="shade">
+          <div class="notif">
+            <div class="notif-head"><span class="app"><svg viewBox="14 14 80 80" aria-hidden="true"><circle cx="54" cy="54" r="12" fill="#fff"/><path d="M54,30L54,37M54,71L54,78M30,54L37,54M71,54L78,54M66.02,41.98L70.97,37.03M41.98,41.98L37.03,37.03M66.02,66.02L70.97,70.97M41.98,66.02L37.03,70.97" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg></span>Daily Briefing Hub · 08:00</div>
+            <div class="notif-title">อรุณสวัสดิ์ สรุปเช้านี้พร้อมแล้ว</div>
+            <div class="notif-row"><svg style="color:#d97706"><use href="#i-weather"/></svg>31° มีเมฆบางส่วน · สูงสุด 34°</div>
+            <div class="notif-row"><span class="pm"></span>PM2.5 31 · ปานกลาง</div>
+            <div class="notif-row"><svg style="color:#0284c7"><use href="#i-umbrella"/></svg>ฝนน่าจะตก 15:00–18:00 พกร่มไปด้วย</div>
+            <div class="notif-row"><svg style="color:#7c3aed"><use href="#i-calendar"/></svg>2 นัดหมาย เริ่ม 09:30</div>
+            <div class="notif-row"><svg style="color:#0e7490"><use href="#i-tasks"/></svg>ครบกำหนดวันนี้ 2 · เลยกำหนด 1</div>
+          </div>
+        </div>
+        <figcaption>แจ้งเตือนสรุปเมื่อดึงลงดูแบบเต็ม (ข้อมูลตัวอย่าง)</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- widget -->
+  <section class="section" id="th-widget" aria-labelledby="th-widget-h">
+    <div class="feature flip">
+      <div>
+        <p class="eyebrow"><span class="tile sky"><svg class="i"><use href="#i-layout"/></svg></span>7 · Widget หน้าจอหลัก</p>
+        <h2 id="th-widget-h">ดูสรุปได้โดยไม่ต้องเปิดแอป</h2>
+        <p>มี widget ให้เลือก 2 แบบ</p>
+        <ul>
+          <li><b>สรุปวันนี้</b> (ขนาด 4×2) อากาศ ฝุ่น นัดหมาย งาน และวันสำคัญที่จะถึงใน 7 วัน</li>
+          <li><b>สภาพอากาศ</b> (ขนาด 2×2) อากาศและฝุ่นในพื้นที่ของคุณ</li>
+        </ul>
+        <h3>วิธีเพิ่ม widget</h3>
+        <ol>
+          <li>กดค้างที่พื้นที่ว่างบนหน้าจอหลักของเครื่อง</li>
+          <li>แตะ <span class="ui">วิดเจ็ต</span> (Widgets)</li>
+          <li>หา <b>Daily Briefing Hub</b> แล้วเลือก <span class="ui">สรุปวันนี้</span> หรือ <span class="ui">สภาพอากาศ</span></li>
+          <li>แตะ <span class="ui">เพิ่ม</span> หรือลากไปวางตรงที่ต้องการ</li>
+        </ol>
+        <p class="note">ชื่อเมนูอาจต่างกันเล็กน้อยตามยี่ห้อโทรศัพท์</p>
+        <div class="callout">
+          <svg class="i"><use href="#i-eye"/></svg>
+          <p><b>ทำไม widget แสดงแค่จำนวน?</b> widget อยู่นอกการล็อก PIN ใครเห็นหน้าจอก็อ่านได้ ค่าเริ่มต้นจึงแสดงแค่จำนวน เช่น "2 นัดวันนี้" "งานค้าง 5"
+            ถ้าอยากเห็นชื่อนัดและชื่องาน เปิด <span class="path"><span>ตั้งค่า</span><span>หน้าหลัก</span><span>แสดงชื่อนัดและงานบน widget</span></span>
+            (ค่านี้กลับเป็นปิดเมื่อออกจากระบบ)</p>
+        </div>
+        <p>widget อัปเดตเองทุกชั่วโมง และทุกครั้งที่คุณออกจากแอป แตะ widget เพื่อเปิดแอป (แอปจะถาม PIN ตามปกติ)</p>
+      </div>
+      <figure class="phone">
+        <div class="screen"><img src="img/th-widget.webp" alt="widget สรุปวันนี้ขนาด 4×2 และ widget สภาพอากาศขนาด 2×2 บนหน้าจอหลัก" width="540" height="1128" loading="lazy"></div>
+        <figcaption>widget สรุปวันนี้ (บน) และสภาพอากาศ (ล่าง)</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- cards -->
+  <section class="section" id="th-cards" aria-labelledby="th-cards-h">
+    <div class="feature">
+      <div>
+        <p class="eyebrow"><span class="tile saffron"><svg class="i"><use href="#i-layout"/></svg></span>8 · จัดการ์ดหน้าหลัก</p>
+        <h2 id="th-cards-h">เลือกว่าจะเห็นอะไร และเห็นอะไรก่อน</h2>
+        <p>เปิด <span class="path"><span>ตั้งค่า</span><span>หน้าหลัก</span><span>การ์ดบนหน้าหลัก</span></span></p>
+        <ul>
+          <li><b>แสดงหรือซ่อน</b> ใช้สวิตช์ข้างการ์ดแต่ละใบ ต้องเหลือการ์ดอย่างน้อย 1 ใบ</li>
+          <li><b>เรียงลำดับ</b> กดค้างที่การ์ดแล้วลากขึ้นหรือลง</li>
+          <li><b>ดูผลทันที</b> ตัวอย่างหน้าหลักด้านล่างเปลี่ยนตามทุกครั้งที่ปรับ</li>
+          <li>แตะ <span class="ui">เสร็จ</span> เมื่อจัดเสร็จ</li>
+        </ul>
+        <p>ลำดับและการ์ดที่ซ่อนเก็บในบัญชี เปิดเครื่องอื่นด้วยบัญชีเดียวกันก็เห็นหน้าหลักแบบเดียวกัน</p>
+      </div>
+      <figure class="phone">
+        <div class="screen"><img src="img/th-cards.webp" alt="หน้าการ์ดบนหน้าหลัก: สวิตช์เปิดปิดของการ์ดแต่ละใบ ที่จับสำหรับลาก และตัวอย่างหน้าหลัก" width="540" height="1128" loading="lazy"></div>
+        <figcaption>หน้าการ์ดบนหน้าหลัก</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- settings -->
+  <section class="section" id="th-settings" aria-labelledby="th-settings-h">
+    <div class="feature flip">
+      <div>
+        <p class="eyebrow"><span class="tile"><svg class="i"><use href="#i-palette"/></svg></span>9 · การตั้งค่า</p>
+        <h2 id="th-settings-h">ทุกอย่างในหน้าตั้งค่า</h2>
+        <p>แตะรูปเฟืองมุมขวาบนของหน้าหลัก</p>
+        <div class="settings-map">
+          <div>
+            <p class="group-label">การแสดงผล</p>
+            <div class="card">
+              <div class="row"><span class="tile"><svg class="i"><use href="#i-palette"/></svg></span><div><b>ธีม</b><span>ตามระบบ สว่าง หรือมืด</span></div></div>
+              <div class="row"><span class="tile"><svg class="i"><use href="#i-globe"/></svg></span><div><b>ภาษา</b><span>ตามระบบ ไทย หรือ English เปลี่ยนแล้วมีผลกับแจ้งเตือนและ widget ด้วย</span></div></div>
+            </div>
+          </div>
+          <div>
+            <p class="group-label">หน้าหลัก</p>
+            <div class="card">
+              <div class="row"><span class="tile"><svg class="i"><use href="#i-layout"/></svg></span><div><b>การ์ดบนหน้าหลัก</b><span>ซ่อนหรือเรียงการ์ด (<a href="#th-cards">ดูวิธี</a>)</span></div></div>
+              <div class="row"><span class="tile"><svg class="i"><use href="#i-eye"/></svg></span><div><b>แสดงชื่อนัดและงานบน widget</b><span>ปิดไว้: widget แสดงแค่จำนวน</span></div></div>
+            </div>
+          </div>
+          <div>
+            <p class="group-label">สรุปประจำวัน</p>
+            <div class="card">
+              <div class="row"><span class="tile amber"><svg class="i"><use href="#i-bell"/></svg></span><div><b>แจ้งเตือนทุกวัน</b><span>เปิดหรือปิดสรุปประจำวัน</span></div></div>
+              <div class="row"><span class="tile amber"><svg class="i"><use href="#i-clock"/></svg></span><div><b>เวลาส่งสรุป</b><span>เลือกเวลาที่อยากได้รับสรุป</span></div></div>
+            </div>
+          </div>
+          <div>
+            <p class="group-label">บัญชี</p>
+            <div class="card">
+              <div class="row danger"><span class="tile"><svg class="i"><use href="#i-logout"/></svg></span><div><b>ออกจากระบบ</b><span>PIN ในเครื่องนี้จะถูกลบด้วย ข้อมูลในบัญชียังอยู่</span></div></div>
+              <div class="row danger"><span class="tile"><svg class="i"><use href="#i-trash"/></svg></span><div><b>ลบบัญชี</b><span>ลบบัญชีและข้อมูลทั้งหมดถาวร (<a href="#th-security">อ่านก่อนลบ</a>)</span></div></div>
+            </div>
+          </div>
+          <div>
+            <p class="group-label">เกี่ยวกับแอป</p>
+            <div class="card">
+              <div class="row"><span class="tile"><svg class="i"><use href="#i-book"/></svg></span><div><b>คู่มือการใช้งาน</b><span>เปิดหน้านี้</span></div></div>
+              <div class="row"><span class="tile"><svg class="i"><use href="#i-shield"/></svg></span><div><b>นโยบายความเป็นส่วนตัว</b><span>แอปเก็บข้อมูลอะไรบ้าง และลบได้อย่างไร</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figure class="phone">
+        <div class="screen"><img src="img/th-home-dark.webp" alt="หน้าหลักในธีมมืดช่วงเย็น ท้องฟ้าสีม่วงเข้ม" width="540" height="1128" loading="lazy"></div>
+        <figcaption>ธีมมืด ช่วงเย็น</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- security -->
+  <section class="section" id="th-security" aria-labelledby="th-security-h">
+    <p class="eyebrow"><span class="tile rose"><svg class="i"><use href="#i-lock"/></svg></span>10 · PIN และบัญชี</p>
+    <h2 id="th-security-h">ล็อกแอป ออกจากระบบ และลบบัญชี</h2>
+    <h3>PIN</h3>
+    <ul>
+      <li>แอปถาม PIN ทุกครั้งที่เปิดแอปใหม่ และเมื่อกลับมาหลังออกไปนานกว่า 5 นาที</li>
+      <li>ใส่ผิดได้ 5 ครั้ง ถ้าผิดครบ แอปจะออกจากระบบให้เพื่อความปลอดภัย ข้อมูลในบัญชีไม่หาย เข้าสู่ระบบใหม่แล้วตั้ง PIN ใหม่ได้</li>
+      <li><b>ลืม PIN</b> แตะ <span class="ui">ลืม PIN?</span> บนหน้าใส่ PIN แล้วแตะ <span class="ui">ออกจากระบบ</span> จากนั้นเข้าสู่ระบบใหม่ด้วย Google หรือรหัสทางอีเมล แล้วตั้ง PIN ใหม่</li>
+      <li>PIN เก็บเฉพาะในเครื่อง แต่ละเครื่องตั้ง PIN ของตัวเอง</li>
+    </ul>
+    <h3>ออกจากระบบ</h3>
+    <p><span class="path"><span>ตั้งค่า</span><span>บัญชี</span><span>ออกจากระบบ</span></span> แอปจะลบ PIN และข้อมูลที่เก็บไว้ในเครื่องนี้ ส่วนข้อมูลในบัญชียังอยู่ เข้าสู่ระบบอีกครั้งเมื่อไรก็กลับมาครบ</p>
+    <h3>ลบบัญชี</h3>
+    <p><span class="path"><span>ตั้งค่า</span><span>บัญชี</span><span>ลบบัญชี</span></span> แล้วยืนยัน แอปจะลบสิ่งที่ต้องทำทั้งหมด การตั้งค่าและการ์ดหน้าหลัก เวลาแจ้งเตือนและบันทึกการส่ง และบัญชีที่ใช้ล็อกอิน ออกจากเซิร์ฟเวอร์ทันที</p>
+    <div class="callout">
+      <svg class="i"><use href="#i-trash"/></svg>
+      <p><b>ลบแล้วย้อนกลับไม่ได้</b> นัดหมายในปฏิทินของเครื่องไม่ได้รับผลกระทบ ถ้าไม่มีแอปแล้วแต่อยากลบบัญชี ดูวิธีใน<a href="https://tumtam72.github.io/daily-briefing-hub/#th-delete">นโยบายความเป็นส่วนตัว</a></p>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- devices -->
+  <section class="section" id="th-devices" aria-labelledby="th-devices-h">
+    <p class="eyebrow"><span class="tile"><svg class="i"><use href="#i-cloud"/></svg></span>11 · หลายเครื่องและออฟไลน์</p>
+    <h2 id="th-devices-h">ใช้ได้หลายเครื่องด้วยบัญชีเดียว</h2>
+    <p>ล็อกอินด้วยบัญชีเดียวกันในอีกเครื่อง ข้อมูลบางอย่างจะตามไป บางอย่างอยู่เฉพาะเครื่องนั้น</p>
+    <div class="split">
+      <div>
+        <h3><span class="tile teal"><svg class="i"><use href="#i-cloud"/></svg></span>ตามไปทุกเครื่อง</h3>
+        <ul>
+          <li>สิ่งที่ต้องทำ</li>
+          <li>เวลาส่งสรุป และการเปิดปิดแจ้งเตือน</li>
+          <li>ลำดับการ์ดและการ์ดที่ซ่อน</li>
+        </ul>
+      </div>
+      <div>
+        <h3><span class="tile amber"><svg class="i"><use href="#i-phone"/></svg></span>เฉพาะเครื่องนี้</h3>
+        <ul>
+          <li>PIN</li>
+          <li>ธีมและภาษา</li>
+          <li>การแสดงชื่อบน widget</li>
+          <li>นัดหมาย (อ่านจากปฏิทินของแต่ละเครื่อง)</li>
+          <li>ตำแหน่งและข้อมูลอากาศล่าสุด</li>
+        </ul>
+      </div>
+    </div>
+    <h3>ตอนไม่มีอินเทอร์เน็ต</h3>
+    <p>เปิดแอปได้ตามปกติ เห็นอากาศชุดล่าสุดที่เก็บไว้ (มีป้าย <span class="ui">ออฟไลน์</span>) และเพิ่ม ติ๊ก หรือแก้สิ่งที่ต้องทำได้ แอปจะซิงค์ให้เมื่อกลับมาออนไลน์</p>
+    <h3>อัปเดตแอป</h3>
+    <p>เมื่อมีเวอร์ชันใหม่บน Google Play แอปจะถามว่าจะอัปเดตไหม ถ้าตกลง แอปจะดาวน์โหลดเบื้องหลังระหว่างที่คุณใช้งานต่อ เสร็จแล้วหน้าหลักจะขึ้นแถบนี้ แตะ <span class="ui">รีสตาร์ต</span> เพื่อให้อัปเดตเสร็จ
+      ถ้ายังไม่สะดวก แอปจะถามใหม่ในอีก 3 วัน</p>
+    <div class="banner" aria-hidden="true">
+      <span class="tile teal"><svg class="i"><use href="#i-download"/></svg></span>
+      <div><b>เวอร์ชันใหม่พร้อมแล้ว</b><small>รีสตาร์ตแอปเพื่ออัปเดตให้เสร็จ</small></div>
+      <span class="btn">รีสตาร์ต</span>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- faq -->
+  <section class="section" id="th-faq" aria-labelledby="th-faq-h">
+    <p class="eyebrow"><span class="tile violet"><svg class="i"><use href="#i-help"/></svg></span>12 · คำถามที่พบบ่อย</p>
+    <h2 id="th-faq-h">คำถามที่พบบ่อย</h2>
+    <div class="faq">
+      <details>
+        <summary>ปุ่ม "เข้าสู่ระบบด้วยรหัสผ่าน" ใช้ทำอะไร</summary>
+        <div><p>ใช้ได้เฉพาะบัญชีที่ผู้พัฒนาตั้งรหัสผ่านไว้ให้ เช่น บัญชีสำหรับทีมตรวจแอปของ Google Play ผู้ใช้ทั่วไปเข้าสู่ระบบด้วย Google หรือรหัส 6 หลักทางอีเมล ไม่ต้องมีรหัสผ่าน</p></div>
+      </details>
+      <details>
+        <summary>ทำไมไม่เห็นนัดหมาย</summary>
+        <div>
+          <ul>
+            <li>ดูว่าอนุญาตปฏิทินแล้ว ถ้ายัง การ์ดนัดหมายจะมีปุ่ม <span class="ui">อนุญาตปฏิทิน</span></li>
+            <li>บัญชีปฏิทินต้องซิงค์อยู่ในเครื่อง ลองเปิดแอปปฏิทินของเครื่องดูว่าเห็นนัดนั้นไหม</li>
+            <li>ปฏิทินที่ปิดการแสดงผลไว้ในแอปปฏิทิน และนัดที่ถูกยกเลิก จะไม่แสดง</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>ค่าฝุ่นไม่ตรงกับแอปอื่น</summary>
+        <div><p>แอปนี้ใช้ค่าฝุ่นจากแบบจำลองของ OpenWeather ตามพิกัดคร่าวๆ ของคุณ ไม่ใช่ค่าจากสถานีวัดที่ใกล้ที่สุด ตัวเลขจึงต่างกันได้บ้าง แต่แนวโน้มมักไปทางเดียวกัน</p></div>
+      </details>
+      <details>
+        <summary>ทำไม widget ไม่แสดงชื่องาน หรือขึ้นว่า "เปิดแอปเพื่อเข้าสู่ระบบ"</summary>
+        <div><p>ค่าเริ่มต้นแสดงแค่จำนวนเพื่อความเป็นส่วนตัว เปิดได้ที่ <span class="path"><span>ตั้งค่า</span><span>หน้าหลัก</span><span>แสดงชื่อนัดและงานบน widget</span></span>
+          ถ้าขึ้นว่า "เปิดแอปเพื่อเข้าสู่ระบบ" แปลว่าเครื่องนี้ออกจากระบบอยู่ เปิดแอปแล้วเข้าสู่ระบบอีกครั้ง</p></div>
+      </details>
+      <details>
+        <summary>แจ้งเตือนมาช้าหรือไม่มา</summary>
+        <div><p>ดูหัวข้อ <a href="#th-briefing">แจ้งเตือนไม่มา?</a> ในส่วนสรุปประจำวัน</p></div>
+      </details>
+      <details>
+        <summary>เปลี่ยนภาษาของแอปได้ไหม</summary>
+        <div><p>ได้ที่ <span class="path"><span>ตั้งค่า</span><span>ภาษา</span></span> เลือก ไทย หรือ English หรือ ตามระบบ เพื่อใช้ภาษาเดียวกับเครื่อง</p></div>
+      </details>
+      <details>
+        <summary>แอปเก็บข้อมูลอะไรของฉันบ้าง</summary>
+        <div><p>ไม่มีโฆษณาและไม่ติดตามพฤติกรรม นัดหมายอ่านในเครื่องเท่านั้น ตำแหน่งใช้แค่คร่าวๆ เพื่อดูอากาศ รายละเอียดทั้งหมดอยู่ใน<a href="https://tumtam72.github.io/daily-briefing-hub/#th">นโยบายความเป็นส่วนตัว</a></p></div>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="th-contact" aria-labelledby="th-contact-h">
+    <h2 id="th-contact-h">ติดต่อผู้พัฒนา</h2>
+    <p>พบปัญหา หรืออยากแนะนำอะไร ส่งอีเมลมาที่ <a href="mailto:a.tumtam@gmail.com">a.tumtam@gmail.com</a>
+      บอกรุ่นโทรศัพท์และเวอร์ชันของแอป (ดูได้ท้ายหน้าตั้งค่า) จะช่วยให้ตอบได้เร็วขึ้น</p>
+    <p>Mr. Thamanoon Jittrakarn · ประเทศไทย</p>
+  </section>
+</article>
+
+<!-- ======================================================== English -->
+<article id="guide-en" lang="en">
+
+  <section class="intro" aria-labelledby="en-contents">
+    <p id="en-contents">Daily Briefing Hub puts today's weather and PM2.5, your events, your to-dos, holidays and Buddhist holy days and a quote of the day
+      on one screen, and sends you a briefing every day at the time you choose. Pick a topic to start.</p>
+    <ul class="toc">
+      <li><a href="#en-start"><span class="tile teal"><svg class="i"><use href="#i-phone"/></svg></span>Getting started</a></li>
+      <li><a href="#en-home"><span class="tile"><svg class="i"><use href="#i-layout"/></svg></span>Home</a></li>
+      <li><a href="#en-weather"><span class="tile amber"><svg class="i"><use href="#i-weather"/></svg></span>Weather and PM2.5</a></li>
+      <li><a href="#en-events"><span class="tile violet"><svg class="i"><use href="#i-calendar"/></svg></span>Events and special days</a></li>
+      <li><a href="#en-todos"><span class="tile teal"><svg class="i"><use href="#i-tasks"/></svg></span>To-dos</a></li>
+      <li><a href="#en-briefing"><span class="tile amber"><svg class="i"><use href="#i-bell"/></svg></span>Daily briefing</a></li>
+      <li><a href="#en-widget"><span class="tile sky"><svg class="i"><use href="#i-layout"/></svg></span>Home-screen widgets</a></li>
+      <li><a href="#en-cards"><span class="tile saffron"><svg class="i"><use href="#i-layout"/></svg></span>Arrange Home</a></li>
+      <li><a href="#en-settings"><span class="tile"><svg class="i"><use href="#i-palette"/></svg></span>Settings</a></li>
+      <li><a href="#en-security"><span class="tile rose"><svg class="i"><use href="#i-lock"/></svg></span>PIN and account</a></li>
+      <li><a href="#en-devices"><span class="tile"><svg class="i"><use href="#i-cloud"/></svg></span>Several phones, offline</a></li>
+      <li><a href="#en-faq"><span class="tile violet"><svg class="i"><use href="#i-help"/></svg></span>Questions</a></li>
+    </ul>
+  </section>
+
+  <!-- ---------------------------------------------------- start -->
+  <section class="section" id="en-start" aria-labelledby="en-start-h">
+    <p class="eyebrow"><span class="tile teal"><svg class="i"><use href="#i-phone"/></svg></span>1 · Getting started</p>
+    <h2 id="en-start-h">Three steps to your first briefing</h2>
+    <p>The first time you open the app, it walks you through these steps. It takes less than two minutes.</p>
+    <ol class="steps">
+      <li>
+        <span class="num" aria-hidden="true">1</span>
+        <span class="tile teal"><svg class="i"><use href="#i-mail"/></svg></span>
+        <h3>Sign in</h3>
+        <p>Tap <span class="ui">Continue with Google</span>, or type your email and tap <span class="ui">Email me a code</span>,
+          then enter the 6-digit code and tap <span class="ui">Verify</span>.
+          First time here? Your account is created when you enter the code, with no separate sign-up.</p>
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">2</span>
+        <span class="tile rose"><svg class="i"><use href="#i-lock"/></svg></span>
+        <h3>Create a 6-digit PIN</h3>
+        <p>Enter six digits, then the same six again. The PIN unlocks the app on this phone; it is not your account password.</p>
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">3</span>
+        <span class="tile amber"><svg class="i"><use href="#i-shield"/></svg></span>
+        <h3>Allow permissions</h3>
+        <p>Tap <span class="ui">Allow</span> for each one (calendar, notifications, location), then <span class="ui">Get started</span>.
+          You can also tap <span class="ui">Not now</span> and decide later.</p>
+      </li>
+    </ol>
+    <div class="callout">
+      <svg class="i"><use href="#i-mail"/></svg>
+      <p><b>No code in your inbox?</b> Check the spam or junk folder. If it is not there, wait 60 seconds and tap <span class="ui">Send a new code</span>.
+        If you mistyped the address, tap <span class="ui">Use a different email</span>. Codes expire, so always use the latest one.</p>
+    </div>
+    <h3>What each permission is for, and what happens without it</h3>
+    <div class="table-frame">
+      <table>
+        <thead><tr><th>Permission</th><th>Used for</th><th>Without it</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tile violet"><svg class="i"><use href="#i-calendar"/></svg></span>Calendar</td><td>Today's events, read on the phone and never uploaded</td><td>The events card offers an <span class="ui">Allow calendar</span> button for later</td></tr>
+          <tr><td><span class="tile amber"><svg class="i"><use href="#i-bell"/></svg></span>Notifications</td><td>The daily briefing at your time</td><td>No briefing; turn it on later in Settings</td></tr>
+          <tr><td><span class="tile sky"><svg class="i"><use href="#i-place"/></svg></span>Location</td><td>Weather and PM2.5 where you are, from your rough area only</td><td>Bangkok's weather, with a <span class="ui">Use my location</span> button</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- home -->
+  <section class="section" id="en-home" aria-labelledby="en-home-h">
+    <div class="feature">
+      <div>
+        <p class="eyebrow"><span class="tile"><svg class="i"><use href="#i-layout"/></svg></span>2 · Home</p>
+        <h2 id="en-home-h">Your whole day on one screen</h2>
+        <p>Home lays today out as cards. Scroll down for the rest, and <b>pull the screen down</b> whenever you want fresh data.</p>
+        <ol class="legend">
+          <li><span><b>Greeting and date.</b> Good morning, good afternoon or good evening, with a sky behind that follows the time of day.</span></li>
+          <li><span><b>Settings</b> (the gear): theme, language, briefing time, Home cards and your account.</span></li>
+          <li><span><b>Weather card.</b> The temperature now, the high and low, the chance of rain and the next few hours. Tap it for the full details.</span></li>
+          <li><span><b>Dust and rain.</b> A PM2.5 chip in its level's colour, and a rain chip when rain is likely today.</span></li>
+          <li><span><b>To-dos.</b> The ring at the top right shows how many are done out of all of them.</span></li>
+        </ol>
+        <p>There are five cards: Weather, Today's events, To-dos, Quote of the day, and Holidays &amp; holy days.
+          Hide the ones you don't use or change their order (see <a href="#en-cards">Arrange Home</a>).</p>
+        <p class="note">With no internet, the weather card says <span class="ui">Offline · last update …</span> and shows the last weather it saved.</p>
+      </div>
+      <figure class="phone">
+        <div class="screen">
+          <img src="img/en-home.webp" alt="The app's Home: the greeting, a weather card at 31 degrees with PM2.5 31 Moderate, and the to-do list" width="540" height="1128" loading="lazy">
+          <span class="pin" style="--x:58%; --y:8.6%">1</span>
+          <span class="pin" style="--x:79%; --y:9.8%">2</span>
+          <span class="pin" style="--x:56%; --y:25%">3</span>
+          <span class="pin" style="--x:89%; --y:37.2%">4</span>
+          <span class="pin" style="--x:60%; --y:57.2%">5</span>
+        </div>
+        <figcaption>Home in the morning (sample data)</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- weather -->
+  <section class="section" id="en-weather" aria-labelledby="en-weather-h">
+    <div class="feature flip">
+      <div>
+        <p class="eyebrow"><span class="tile amber"><svg class="i"><use href="#i-weather"/></svg></span>3 · Weather and PM2.5</p>
+        <h2 id="en-weather-h">Know before you leave whether you need an umbrella or a mask</h2>
+        <p>Tap the weather card on Home to open the details:</p>
+        <ul>
+          <li><b>Rain alert.</b> When the chance of rain between 07:00 and 21:00 today reaches 40%, the app says when and suggests an umbrella. If it is raining already, it says <span class="ui">Raining now</span>.</li>
+          <li><b>PM2.5.</b> The value now, its level and colour on the Thai Pollution Control Department's scale, advice, and the outlook for later, such as this afternoon, tonight and tomorrow morning.</li>
+          <li><b>Next 24 hours.</b> Temperature and chance of rain every 3 hours, as a chart.</li>
+          <li><b>Feels like, humidity, wind and visibility,</b> each with a line on what it means.</li>
+          <li><b>Sunrise and sunset,</b> and how long the day is.</li>
+          <li><b>Next 5 days:</b> the high, low and chance of rain for each day.</li>
+        </ul>
+        <h3>The PM2.5 levels the app uses</h3>
+        <div class="scale" aria-hidden="true"><span class="lv1"></span><span class="lv2"></span><span class="lv3"></span><span class="lv4"></span><span class="lv5"></span></div>
+        <div class="table-frame">
+          <table>
+            <thead><tr><th>Level</th><th>µg/m³</th><th>The app's advice</th></tr></thead>
+            <tbody>
+              <tr><td><span class="dot lv1"></span>Very good</td><td class="num">0–15</td><td>Great air for being outdoors</td></tr>
+              <tr><td><span class="dot lv2"></span>Good</td><td class="num">16–25</td><td>Outdoor activities as usual</td></tr>
+              <tr><td><span class="dot lv3"></span>Moderate</td><td class="num">26–37</td><td>As usual, but spend less time outside if you cough, find it hard to breathe or your eyes sting</td></tr>
+              <tr><td><span class="dot lv4"></span>Starting to affect health</td><td class="num">38–75</td><td>Spend less time outdoors and wear a dust mask for longer stays</td></tr>
+              <tr><td><span class="dot lv5"></span>Affects health</td><td class="num">76 and up</td><td>Stay indoors if you can and wear a dust mask outside</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Weather and PM2.5 come from OpenWeather. PM2.5 is modelled rather than measured at a station, so it can differ a little from a station near you.</p>
+        <div class="callout info">
+          <svg class="i"><use href="#i-place"/></svg>
+          <p><b>Seeing Bangkok's weather?</b> Location isn't allowed yet. Tap <span class="ui">Use my location</span> on the weather card and allow it. The app only uses your rough area, about the size of a district.</p>
+        </div>
+      </div>
+      <figure class="phone">
+        <div class="screen"><img src="img/en-weather.webp" alt="The weather details: an afternoon rain alert, the PM2.5 card at Moderate, and the 24-hour chart" width="540" height="1128" loading="lazy"></div>
+        <figcaption>Weather details</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- events + special days -->
+  <section class="section" id="en-events" aria-labelledby="en-events-h">
+    <div class="feature">
+      <div>
+        <p class="eyebrow"><span class="tile violet"><svg class="i"><use href="#i-calendar"/></svg></span>4 · Events and special days</p>
+        <h2 id="en-events-h">Today's events, holidays and holy days</h2>
+        <h3>Today's events</h3>
+        <ul>
+          <li>The app reads the calendars synced to your phone, such as Google Calendar or Samsung Calendar. <b>Your events are never uploaded.</b></li>
+          <li>An event coming up soon shows how long until it starts, such as <span class="ui">in 1 hr</span>.</li>
+          <li>On a free day, the card shows your next event within 14 days.</li>
+          <li>Tap an event to open it in your calendar app, or tap <span class="ui">Open calendar</span>.</li>
+          <li>Add or change events in your calendar app; when you come back, the list is up to date.</li>
+        </ul>
+        <h3>Holidays &amp; holy days</h3>
+        <ul>
+          <li>The next three public holidays and Buddhist holy days, with how many days away they are.</li>
+          <li>A <b>public holiday</b> has a filled saffron date; a plain holy day has an outlined one.</li>
+          <li>When tomorrow is a holiday or holy day, the daily briefing tells you.</li>
+        </ul>
+        <h3>Quote of the day</h3>
+        <p>A new one each day, in the app's language.</p>
+      </div>
+      <figure class="phone">
+        <div class="screen"><img src="img/en-special.webp" alt="The holidays and holy days card, and today's events card with two events" width="540" height="1128" loading="lazy"></div>
+        <figcaption>Special days, events and the quote</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- todos -->
+  <section class="section" id="en-todos" aria-labelledby="en-todos-h">
+    <div class="feature flip">
+      <div>
+        <p class="eyebrow"><span class="tile teal"><svg class="i"><use href="#i-tasks"/></svg></span>5 · To-dos</p>
+        <h2 id="en-todos-h">Write it down, give it a date, tick it off</h2>
+        <h3>Add a to-do</h3>
+        <ol>
+          <li>Tap <span class="ui">+ Add a to-do</span> at the bottom of the to-dos card.</li>
+          <li>Type the title.</li>
+          <li>Pick a due date: <span class="ui">None</span>, <span class="ui">Today</span>, <span class="ui">Tomorrow</span>, or <span class="ui">Pick a date</span> from a calendar.</li>
+          <li>Tap <span class="ui">Save</span>.</li>
+        </ol>
+        <h3>Tick, edit and delete</h3>
+        <ul>
+          <li><b>Done:</b> tap the circle, then <span class="ui">Done</span>. The to-do moves into <span class="ui">N done</span> at the bottom of the card; tap that line to show or hide them.</li>
+          <li><b>Changed your mind:</b> tap the circle of a done to-do, then <span class="ui">Not done</span>.</li>
+          <li><b>Edit:</b> tap the title, change the title or due date, then tap <span class="ui">Save</span>.</li>
+          <li><b>Delete:</b> tap the title, tap the red bin at the top right, then confirm <span class="ui">Delete</span>. This can't be undone.</li>
+        </ul>
+        <h3>Grouped by due date</h3>
+        <p>Once a to-do has a due date, the card splits into <b style="color:var(--rose)">Overdue</b>, <b>Today</b> and <b>Later</b>.
+          Overdue to-dos carry a red label with how late they are. To-dos due today and overdue ones are counted in your morning briefing.</p>
+        <div class="callout info">
+          <svg class="i"><use href="#i-cloud"/></svg>
+          <p><b>Works offline.</b> Add, tick and edit as usual; the app syncs when you are back online. To-dos are saved to your account, so you see the same list on every phone you sign in on.</p>
+        </div>
+      </div>
+      <figure class="phone">
+        <div class="screen"><img src="img/en-todos.webp" alt="The edit sheet: a title field, due date choices None, Today, Tomorrow and Pick a date, and a Save button" width="540" height="1128" loading="lazy"></div>
+        <figcaption>Editing a to-do (tap its title)</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- briefing -->
+  <section class="section" id="en-briefing" aria-labelledby="en-briefing-h">
+    <div class="feature">
+      <div>
+        <p class="eyebrow"><span class="tile amber"><svg class="i"><use href="#i-bell"/></svg></span>6 · Daily briefing</p>
+        <h2 id="en-briefing-h">A briefing every day, even with the app closed</h2>
+        <p>Every day at your time (<b>08:00</b> to begin with) the app sends a notification that sums up your day. Pull it down to see all of it, and tap it to open the app. It has:</p>
+        <ul>
+          <li>The weather now and today's high</li>
+          <li>PM2.5 and its level</li>
+          <li>When rain is likely, if it is</li>
+          <li>How many events you have and when the first one starts</li>
+          <li>To-dos due today and overdue</li>
+          <li>Whether tomorrow is a holiday or holy day</li>
+        </ul>
+        <h3>Change the time, or turn it off</h3>
+        <p><span class="path"><span>Settings</span><span>Daily briefing</span><span>Briefing time</span></span>, pick a time and tap <span class="ui">OK</span>.
+          To stop the briefing, turn off <span class="ui">Daily notification</span>.</p>
+        <h3>No briefing?</h3>
+        <ul>
+          <li>Check that <span class="ui">Daily notification</span> is on. If the phone blocks the app's notifications, Settings shows a red note with an <span class="ui">Open phone settings</span> button.</li>
+          <li>If the server's signal does not get through on time, for example while offline, the app writes the briefing itself within about 15 minutes of your time.</li>
+          <li>If it is often late, set the app's battery use to <b>Unrestricted</b> in the phone's app settings, and keep it out of any list of sleeping apps.</li>
+        </ul>
+      </div>
+      <figure class="phone" aria-label="A sample daily briefing notification">
+        <div class="shade">
+          <div class="notif">
+            <div class="notif-head"><span class="app"><svg viewBox="14 14 80 80" aria-hidden="true"><circle cx="54" cy="54" r="12" fill="#fff"/><path d="M54,30L54,37M54,71L54,78M30,54L37,54M71,54L78,54M66.02,41.98L70.97,37.03M41.98,41.98L37.03,37.03M66.02,66.02L70.97,70.97M41.98,66.02L37.03,70.97" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg></span>Daily Briefing Hub · 08:00</div>
+            <div class="notif-title">Good morning, your briefing is ready</div>
+            <div class="notif-row"><svg style="color:#d97706"><use href="#i-weather"/></svg>31° Partly cloudy · high 34°</div>
+            <div class="notif-row"><span class="pm"></span>PM2.5 31 · Moderate</div>
+            <div class="notif-row"><svg style="color:#0284c7"><use href="#i-umbrella"/></svg>Rain likely 15:00–18:00, take an umbrella</div>
+            <div class="notif-row"><svg style="color:#7c3aed"><use href="#i-calendar"/></svg>2 events from 09:30</div>
+            <div class="notif-row"><svg style="color:#0e7490"><use href="#i-tasks"/></svg>2 to-dos due today · 1 overdue</div>
+          </div>
+        </div>
+        <figcaption>The briefing pulled down in full (sample data)</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- widget -->
+  <section class="section" id="en-widget" aria-labelledby="en-widget-h">
+    <div class="feature flip">
+      <div>
+        <p class="eyebrow"><span class="tile sky"><svg class="i"><use href="#i-layout"/></svg></span>7 · Home-screen widgets</p>
+        <h2 id="en-widget-h">Your day without opening the app</h2>
+        <p>There are two widgets:</p>
+        <ul>
+          <li><b>Today</b> (4×2): weather, PM2.5, events, to-dos and any special day in the next 7 days.</li>
+          <li><b>Weather</b> (2×2): weather and PM2.5 where you are.</li>
+        </ul>
+        <h3>Add a widget</h3>
+        <ol>
+          <li>Press and hold an empty spot on your phone's home screen.</li>
+          <li>Tap <span class="ui">Widgets</span>.</li>
+          <li>Find <b>Daily Briefing Hub</b> and choose <span class="ui">Today</span> or <span class="ui">Weather</span>.</li>
+          <li>Tap <span class="ui">Add</span>, or drag it where you want it.</li>
+        </ol>
+        <p class="note">Menu names vary a little between phone makers.</p>
+        <div class="callout">
+          <svg class="i"><use href="#i-eye"/></svg>
+          <p><b>Why only numbers?</b> A widget sits outside the PIN lock, so anyone who sees your screen can read it. By default it shows counts only, such as "2 events" and "5 to-dos left".
+            To see event and to-do names, turn on <span class="path"><span>Settings</span><span>Home</span><span>Show names on the widget</span></span>.
+            It turns off again when you sign out.</p>
+        </div>
+        <p>Widgets refresh every hour and each time you leave the app. Tap one to open the app, which asks for your PIN as usual.</p>
+      </div>
+      <figure class="phone">
+        <div class="screen"><img src="img/en-widget.webp" alt="The 4×2 Today widget and the 2×2 Weather widget on a home screen" width="540" height="1128" loading="lazy"></div>
+        <figcaption>The Today widget (top) and the Weather widget (bottom)</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- cards -->
+  <section class="section" id="en-cards" aria-labelledby="en-cards-h">
+    <div class="feature">
+      <div>
+        <p class="eyebrow"><span class="tile saffron"><svg class="i"><use href="#i-layout"/></svg></span>8 · Arrange Home</p>
+        <h2 id="en-cards-h">Choose what you see, and what comes first</h2>
+        <p>Open <span class="path"><span>Settings</span><span>Home</span><span>Home cards</span></span>.</p>
+        <ul>
+          <li><b>Show or hide</b> a card with its switch. At least one card stays on Home.</li>
+          <li><b>Reorder:</b> press and hold a card, then drag it up or down.</li>
+          <li><b>See it at once:</b> the Home preview below follows every change.</li>
+          <li>Tap <span class="ui">Done</span> when you are finished.</li>
+        </ul>
+        <p>The order and hidden cards are saved to your account, so Home looks the same on every phone you sign in on.</p>
+      </div>
+      <figure class="phone">
+        <div class="screen"><img src="img/en-cards.webp" alt="The Home cards screen: a switch and a drag handle for each card, and a Home preview" width="540" height="1128" loading="lazy"></div>
+        <figcaption>Home cards</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- settings -->
+  <section class="section" id="en-settings" aria-labelledby="en-settings-h">
+    <div class="feature flip">
+      <div>
+        <p class="eyebrow"><span class="tile"><svg class="i"><use href="#i-palette"/></svg></span>9 · Settings</p>
+        <h2 id="en-settings-h">Everything in Settings</h2>
+        <p>Tap the gear at the top right of Home.</p>
+        <div class="settings-map">
+          <div>
+            <p class="group-label">Appearance</p>
+            <div class="card">
+              <div class="row"><span class="tile"><svg class="i"><use href="#i-palette"/></svg></span><div><b>Theme</b><span>System, Light or Dark</span></div></div>
+              <div class="row"><span class="tile"><svg class="i"><use href="#i-globe"/></svg></span><div><b>Language</b><span>System, ไทย or English. The briefing and widgets follow it too.</span></div></div>
+            </div>
+          </div>
+          <div>
+            <p class="group-label">Home</p>
+            <div class="card">
+              <div class="row"><span class="tile"><svg class="i"><use href="#i-layout"/></svg></span><div><b>Home cards</b><span>Hide or reorder cards (<a href="#en-cards">how</a>)</span></div></div>
+              <div class="row"><span class="tile"><svg class="i"><use href="#i-eye"/></svg></span><div><b>Show names on the widget</b><span>Off: the widget shows counts only</span></div></div>
+            </div>
+          </div>
+          <div>
+            <p class="group-label">Daily briefing</p>
+            <div class="card">
+              <div class="row"><span class="tile amber"><svg class="i"><use href="#i-bell"/></svg></span><div><b>Daily notification</b><span>Turn the daily briefing on or off</span></div></div>
+              <div class="row"><span class="tile amber"><svg class="i"><use href="#i-clock"/></svg></span><div><b>Briefing time</b><span>When you want the briefing</span></div></div>
+            </div>
+          </div>
+          <div>
+            <p class="group-label">Account</p>
+            <div class="card">
+              <div class="row danger"><span class="tile"><svg class="i"><use href="#i-logout"/></svg></span><div><b>Sign out</b><span>Removes the PIN on this phone too; your account data stays</span></div></div>
+              <div class="row danger"><span class="tile"><svg class="i"><use href="#i-trash"/></svg></span><div><b>Delete account</b><span>Deletes your account and all its data for good (<a href="#en-security">read first</a>)</span></div></div>
+            </div>
+          </div>
+          <div>
+            <p class="group-label">About</p>
+            <div class="card">
+              <div class="row"><span class="tile"><svg class="i"><use href="#i-book"/></svg></span><div><b>User guide</b><span>Opens this page</span></div></div>
+              <div class="row"><span class="tile"><svg class="i"><use href="#i-shield"/></svg></span><div><b>Privacy policy</b><span>What the app keeps about you and how to delete it</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figure class="phone">
+        <div class="screen"><img src="img/en-home-dark.webp" alt="Home in the dark theme in the evening, under a deep violet sky" width="540" height="1128" loading="lazy"></div>
+        <figcaption>The dark theme in the evening</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- security -->
+  <section class="section" id="en-security" aria-labelledby="en-security-h">
+    <p class="eyebrow"><span class="tile rose"><svg class="i"><use href="#i-lock"/></svg></span>10 · PIN and account</p>
+    <h2 id="en-security-h">Locking the app, signing out, deleting your account</h2>
+    <h3>PIN</h3>
+    <ul>
+      <li>The app asks for your PIN each time it starts, and when you come back after more than 5 minutes away.</li>
+      <li>You have 5 tries. After the fifth wrong PIN the app signs you out to keep your data safe. Nothing in your account is lost: sign in again and create a new PIN.</li>
+      <li><b>Forgot your PIN?</b> Tap <span class="ui">Forgot PIN?</span> on the PIN screen, then <span class="ui">Sign out</span>. Sign in again with Google or an email code, and create a new PIN.</li>
+      <li>The PIN stays on the phone. Each phone has its own.</li>
+    </ul>
+    <h3>Sign out</h3>
+    <p><span class="path"><span>Settings</span><span>Account</span><span>Sign out</span></span>. The app removes the PIN and the data it keeps on this phone. Your account data stays, and it is all back when you sign in again.</p>
+    <h3>Delete your account</h3>
+    <p><span class="path"><span>Settings</span><span>Account</span><span>Delete account</span></span>, then confirm. All your to-dos, your settings and Home cards, your briefing time and send log, and the account you sign in with are deleted from the server at once.</p>
+    <div class="callout">
+      <svg class="i"><use href="#i-trash"/></svg>
+      <p><b>This can't be undone.</b> Events in the phone's calendar are not touched. If you no longer have the app, the <a href="https://tumtam72.github.io/daily-briefing-hub/#en-delete">privacy policy</a> says how to have your account deleted.</p>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- devices -->
+  <section class="section" id="en-devices" aria-labelledby="en-devices-h">
+    <p class="eyebrow"><span class="tile"><svg class="i"><use href="#i-cloud"/></svg></span>11 · Several phones, offline</p>
+    <h2 id="en-devices-h">One account on several phones</h2>
+    <p>Sign in with the same account on another phone. Some things follow you, and some stay on each phone.</p>
+    <div class="split">
+      <div>
+        <h3><span class="tile teal"><svg class="i"><use href="#i-cloud"/></svg></span>Follows you</h3>
+        <ul>
+          <li>To-dos</li>
+          <li>Briefing time, and whether the briefing is on</li>
+          <li>Card order and hidden cards</li>
+        </ul>
+      </div>
+      <div>
+        <h3><span class="tile amber"><svg class="i"><use href="#i-phone"/></svg></span>This phone only</h3>
+        <ul>
+          <li>PIN</li>
+          <li>Theme and language</li>
+          <li>Names on the widget</li>
+          <li>Events (read from each phone's calendar)</li>
+          <li>Location and the last weather</li>
+        </ul>
+      </div>
+    </div>
+    <h3>Without internet</h3>
+    <p>The app opens as usual with the last weather it saved (marked <span class="ui">Offline</span>), and you can add, tick and edit to-dos. It syncs when you are back online.</p>
+    <h3>Updates</h3>
+    <p>When Google Play has a new version, the app asks whether to update. If you agree, it downloads in the background while you carry on. When it is done, Home shows this banner: tap <span class="ui">Restart</span> to finish.
+      If now is not a good time, the app asks again in 3 days.</p>
+    <div class="banner" aria-hidden="true">
+      <span class="tile teal"><svg class="i"><use href="#i-download"/></svg></span>
+      <div><b>A new version is ready</b><small>Restart the app to finish updating</small></div>
+      <span class="btn">Restart</span>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- faq -->
+  <section class="section" id="en-faq" aria-labelledby="en-faq-h">
+    <p class="eyebrow"><span class="tile violet"><svg class="i"><use href="#i-help"/></svg></span>12 · Questions</p>
+    <h2 id="en-faq-h">Common questions</h2>
+    <div class="faq">
+      <details>
+        <summary>What is "Sign in with a password" for?</summary>
+        <div><p>It works only for accounts the developer has given a password, such as the one for Google Play's review team. Everyone else signs in with Google or a 6-digit email code; no password is needed.</p></div>
+      </details>
+      <details>
+        <summary>Why don't I see my events?</summary>
+        <div>
+          <ul>
+            <li>Check that the calendar is allowed. If not, the events card shows an <span class="ui">Allow calendar</span> button.</li>
+            <li>The calendar account has to be synced to the phone. Open your calendar app and check that the event is there.</li>
+            <li>Calendars turned off in your calendar app, and cancelled events, are not shown.</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>PM2.5 differs from another app</summary>
+        <div><p>This app uses OpenWeather's modelled PM2.5 for your rough location, not the nearest measuring station, so the numbers can differ a little. The trend is usually the same.</p></div>
+      </details>
+      <details>
+        <summary>The widget shows no names, or says "Open the app to sign in"</summary>
+        <div><p>Counts only is the default, for privacy. Turn names on in <span class="path"><span>Settings</span><span>Home</span><span>Show names on the widget</span></span>.
+          "Open the app to sign in" means this phone is signed out: open the app and sign in again.</p></div>
+      </details>
+      <details>
+        <summary>The briefing is late or doesn't come</summary>
+        <div><p>See <a href="#en-briefing">No briefing?</a> under Daily briefing.</p></div>
+      </details>
+      <details>
+        <summary>Can I change the app's language?</summary>
+        <div><p>Yes: <span class="path"><span>Settings</span><span>Language</span></span>, then ไทย or English, or System to match the phone.</p></div>
+      </details>
+      <details>
+        <summary>What does the app keep about me?</summary>
+        <div><p>No ads and no tracking. Events are read on the phone only, and only your rough location is used, for the weather. The <a href="https://tumtam72.github.io/daily-briefing-hub/#en">privacy policy</a> has the details.</p></div>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="en-contact" aria-labelledby="en-contact-h">
+    <h2 id="en-contact-h">Contact the developer</h2>
+    <p>Found a problem or have an idea? Email <a href="mailto:a.tumtam@gmail.com">a.tumtam@gmail.com</a>.
+      Your phone model and the app version (at the bottom of Settings) help us answer faster.</p>
+    <p>Mr. Thamanoon Jittrakarn · Thailand</p>
+  </section>
+</article>
+
+<footer>
+  <span>Daily Briefing Hub · <span class="only-th">คู่มือการใช้งาน</span><span class="only-en">User guide</span></span>
+  <a href="https://tumtam72.github.io/daily-briefing-hub/"><span class="only-th">นโยบายความเป็นส่วนตัว</span><span class="only-en">Privacy policy</span></a>
+</footer>
+
+</div>
+</main>
+
+<script>
+(function () {
+  // Ids are guide-th / guide-en, not th / en: a #th or #en link (the app's Settings link) only picks
+  // the language and must not make the browser jump past the title (the policy page had that bug).
+  var th = document.getElementById('guide-th');
+  var en = document.getElementById('guide-en');
+  var title = document.getElementById('title');
+  var lede = document.getElementById('lede');
+  var dates = document.getElementById('dates');
+  var buttons = document.querySelectorAll('[data-lang]');
+  var text = {
+    th: {
+      title: 'คู่มือการใช้งาน',
+      lede: 'ทุกอย่างที่ต้องรู้ ตั้งแต่เข้าสู่ระบบครั้งแรก จนถึงสรุปตอนเช้าและ widget บนหน้าจอหลัก',
+      dates: 'ปรับปรุงล่าสุด 5 พฤศจิกายน 2569',
+      doc: 'Daily Briefing Hub · คู่มือการใช้งาน'
+    },
+    en: {
+      title: 'User guide',
+      lede: 'Everything you need, from signing in for the first time to the morning briefing and home-screen widgets',
+      dates: 'Last updated 5 November 2026',
+      doc: 'Daily Briefing Hub · User guide'
+    }
+  };
+  function show(lang) {
+    th.hidden = lang !== 'th';
+    en.hidden = lang !== 'en';
+    title.textContent = text[lang].title;
+    lede.textContent = text[lang].lede;
+    dates.textContent = text[lang].dates;
+    document.title = text[lang].doc;
+    document.documentElement.lang = lang;
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].setAttribute('aria-pressed', String(buttons[i].getAttribute('data-lang') === lang));
+    }
+  }
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function () {
+      var lang = this.getAttribute('data-lang');
+      show(lang);
+      try { history.replaceState(null, '', '#' + lang); } catch (e) {}
+    });
+  }
+  // #en or #en-todos opens that language (and section); otherwise follow the browser's language.
+  var hash = location.hash.slice(1);
+  var browser = (navigator.language || 'th').toLowerCase().indexOf('th') === 0 ? 'th' : 'en';
+  var lang = hash.indexOf('en') === 0 ? 'en' : hash.indexOf('th') === 0 ? 'th' : browser;
+  show(lang);
+  var target = hash && hash !== lang && document.getElementById(hash);
+  if (target && target.scrollIntoView) {
+    // The section was hidden while the browser looked for it, so jump again now and after load.
+    var jump = function () { target.scrollIntoView({ behavior: 'instant', block: 'start' }); };
+    jump();
+    window.addEventListener('load', jump);
+  }
+})();
+</script>
+</body>
+</html>
