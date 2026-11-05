@@ -1399,17 +1399,27 @@ footer a { color: var(--muted); }
     });
   }
   // #en or #en-todos opens that language (and section); otherwise follow the browser's language.
-  var hash = location.hash.slice(1);
+  // Returns the section to scroll to, if the hash names one.
   var browser = (navigator.language || 'th').toLowerCase().indexOf('th') === 0 ? 'th' : 'en';
-  var lang = hash.indexOf('en') === 0 ? 'en' : hash.indexOf('th') === 0 ? 'th' : browser;
-  show(lang);
-  var target = hash && hash !== lang && document.getElementById(hash);
+  function pick(hash) {
+    var lang = hash.indexOf('en') === 0 ? 'en' : hash.indexOf('th') === 0 ? 'th' : browser;
+    show(lang);
+    return hash && hash !== lang ? document.getElementById(hash) : null;
+  }
+  var target = pick(location.hash.slice(1));
   if (target && target.scrollIntoView) {
-    // The section was hidden while the browser looked for it, so jump again now and after load.
+    // The section was hidden while the browser looked for it, so jump again now, after load, and
+    // once the web fonts have swapped in: they change the height of everything above it.
     var jump = function () { target.scrollIntoView({ behavior: 'instant', block: 'start' }); };
     jump();
     window.addEventListener('load', jump);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(jump);
   }
+  // A typed #en, or a link to the other language's section, switches language without a reload.
+  window.addEventListener('hashchange', function () {
+    var section = pick(location.hash.slice(1));
+    if (section) section.scrollIntoView({ block: 'start' });
+  });
 })();
 </script>
 </body>
